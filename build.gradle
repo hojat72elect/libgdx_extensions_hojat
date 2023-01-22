@@ -134,7 +134,7 @@ project(":core") {
         api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        api "com.esotericsoftware.spine:spine-libgdx:3.8.55.1"
+        api "com.esotericsoftware.spine:spine-libgdx:4.1.0"
         api "com.kotcrab.vis:vis-ui:1.4.11"
         api "com.github.tommyettinger:jbump:1.0.1"
         api "de.golfgl.gdxgamesvcs:gdx-gamesvcs-core:1.1.0"
