@@ -33,6 +33,7 @@ class GameScreen : ScreenAdapter() {
         if (timer <= 0) {
             timer = MOVE_TIME
             // all the stuff we wanna do at each step of the timer
+            snake.queryInput()
             snake.move()
         }
 
