@@ -12,8 +12,8 @@ import com.badlogic.gdx.graphics.Texture
  */
 class Snake(
     var snakeHead: Texture,
-    var snakeX: Float = 0f,
-    var snakeY: Float = 0f,
+    var snakeX: Int = 0,
+    var snakeY: Int = 0,
     private var direction: MovementDirection = MovementDirection.RIGHT
 ) {
 
@@ -22,16 +22,16 @@ class Snake(
      */
     private fun checkForOutOfBounds() {
         if (snakeX >= Gdx.graphics.width) {
-            snakeX = 0f
+            snakeX = 0
         }
         if (snakeX < 0) {
-            snakeX = Gdx.graphics.width.toFloat() - SNAKE_MOVEMENT
+            snakeX = Gdx.graphics.width - SNAKE_MOVEMENT
         }
         if (snakeY >= Gdx.graphics.height) {
-            snakeY = 0f
+            snakeY = 0
         }
         if (snakeY < 0) {
-            snakeY = Gdx.graphics.height.toFloat() - SNAKE_MOVEMENT
+            snakeY = Gdx.graphics.height - SNAKE_MOVEMENT
         }
     }
 
