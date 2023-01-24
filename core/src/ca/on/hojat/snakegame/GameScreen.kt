@@ -1,25 +1,31 @@
 package ca.on.hojat.snakegame
 
 import ca.on.hojat.snakegame.gameobjects.Apple
+import ca.on.hojat.snakegame.gameobjects.BodyPart
 import ca.on.hojat.snakegame.gameobjects.Snake
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.MathUtils
+import com.badlogic.gdx.utils.Array
 
 class GameScreen : ScreenAdapter() {
 
-    private lateinit var batch: SpriteBatch
+    private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
     private lateinit var snake: Snake
+    private lateinit var snakeBody: BodyPart
     private lateinit var apple: Apple
+    private val bodyParts = Array<BodyPart>()
 
     override fun resize(width: Int, height: Int) {
-        batch = SpriteBatch()
+        spriteBatch = SpriteBatch()
         snake = Snake(Texture(Gdx.files.internal("snakehead.png")))
+        snakeBody = BodyPart(Texture(Gdx.files.internal("snakebody.png")))
         apple = Apple(Texture(Gdx.files.internal("apple.png")))
     }
 
@@ -45,7 +51,7 @@ class GameScreen : ScreenAdapter() {
         checkAppleCollision()
         checkAndPlaceApple()
         clearScreen()
-        draw()
+        drawSnakeHeadAndApple()
 
     }
 
@@ -54,30 +60,30 @@ class GameScreen : ScreenAdapter() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
     }
 
-    private fun draw() {
+    private fun drawSnakeHeadAndApple() {
         // begin drawing
-        batch.begin()
+        spriteBatch.begin()
         // draw the snake
-        batch.draw(
+        spriteBatch.draw(
             snake.headTexture,
-            snake.x.toFloat(),
-            snake.y.toFloat()
+            snake.headX.toFloat(),
+            snake.headY.toFloat()
         )
         // draw the apple
         if (apple.isAvailable) {
-            batch.draw(
+            spriteBatch.draw(
                 apple.texture,
                 apple.x.toFloat(),
                 apple.y.toFloat()
             )
         }
         // stop drawing
-        batch.end()
+        spriteBatch.end()
     }
 
     private fun checkAndPlaceApple() {
         if (!apple.isAvailable) {
-            while (apple.x == snake.x && apple.y == snake.y) {
+            while (apple.x == snake.headX && apple.y == snake.headY) {
                 with(apple) {
                     x = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
                     y = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
@@ -91,8 +97,16 @@ class GameScreen : ScreenAdapter() {
      * Checks if there has been a collision between snake's head and the apple.
      */
     private fun checkAppleCollision() {
-        if (apple.isAvailable && apple.x == snake.x && apple.y == snake.y) {
+        if (apple.isAvailable && apple.x == snake.headX && apple.y == snake.headY) {
+            snakeBody.updatePosition(snake.headX, snake.headY)
+            bodyParts.insert(0, snakeBody)
             apple.isAvailable = false
+        }
+    }
+
+    private fun drawBodyPart(batch: Batch, bodyPart: BodyPart, snake: Snake) {
+        if (!(bodyPart.x == snake.headX && bodyPart.y == snake.headY)) {
+            batch.draw(bodyPart.texture, bodyPart.x.toFloat(), bodyPart.y.toFloat())
         }
     }
 

@@ -6,14 +6,14 @@ import com.badlogic.gdx.graphics.Texture
 
 /**
  * @param headTexture: The texture that shows the head of the snake.
- * @param x
- * @param y : These 2 are the coordinates of the snake (its head)
+ * @param headX
+ * @param headY : These 2 are the coordinates of the snake (its head)
  *
  */
 class Snake(
     var headTexture: Texture,
-    var x: Int = 0,
-    var y: Int = 0,
+    var headX: Int = 0,
+    var headY: Int = 0,
     private var direction: MovementDirection = MovementDirection.RIGHT
 ) {
 
@@ -21,17 +21,17 @@ class Snake(
      * check where's the head of the snake.
      */
     private fun checkForOutOfBounds() {
-        if (x >= Gdx.graphics.width) {
-            x = 0
+        if (headX >= Gdx.graphics.width) {
+            headX = 0
         }
-        if (x < 0) {
-            x = Gdx.graphics.width - SNAKE_MOVEMENT
+        if (headX < 0) {
+            headX = Gdx.graphics.width - SNAKE_MOVEMENT
         }
-        if (y >= Gdx.graphics.height) {
-            y = 0
+        if (headY >= Gdx.graphics.height) {
+            headY = 0
         }
-        if (y < 0) {
-            y = Gdx.graphics.height - SNAKE_MOVEMENT
+        if (headY < 0) {
+            headY = Gdx.graphics.height - SNAKE_MOVEMENT
         }
     }
 
@@ -41,19 +41,19 @@ class Snake(
     fun move() {
         when (direction) {
             MovementDirection.RIGHT -> {
-                x += SNAKE_MOVEMENT
+                headX += SNAKE_MOVEMENT
             }
 
             MovementDirection.LEFT -> {
-                x -= SNAKE_MOVEMENT
+                headX -= SNAKE_MOVEMENT
             }
 
             MovementDirection.UP -> {
-                y += SNAKE_MOVEMENT
+                headY += SNAKE_MOVEMENT
             }
 
             MovementDirection.DOWN -> {
-                y -= SNAKE_MOVEMENT
+                headY -= SNAKE_MOVEMENT
             }
         }
         // after moving, if it's out of bounds,
