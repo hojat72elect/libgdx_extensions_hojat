@@ -4,9 +4,9 @@ import com.badlogic.gdx.graphics.Texture
 
 
 class Apple(
-    var apple: Texture,
-    var isAppleAvailable: Boolean = false,
-    var appleX: Int = 0,
-    var appleY: Int = 0
+    var texture: Texture,
+    var isAvailable: Boolean = false,
+    var x: Int = 0,
+    var y: Int = 0
 ) {
 }

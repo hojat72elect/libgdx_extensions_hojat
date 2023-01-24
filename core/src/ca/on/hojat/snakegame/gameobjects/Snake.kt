@@ -5,15 +5,15 @@ import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
 
 /**
- * @param snakeHead: The texture that shows the head of the snake.
- * @param snakeX
- * @param snakeY : These 2 are the coordinates of the snake (its head)
+ * @param headTexture: The texture that shows the head of the snake.
+ * @param x
+ * @param y : These 2 are the coordinates of the snake (its head)
  *
  */
 class Snake(
-    var snakeHead: Texture,
-    var snakeX: Int = 0,
-    var snakeY: Int = 0,
+    var headTexture: Texture,
+    var x: Int = 0,
+    var y: Int = 0,
     private var direction: MovementDirection = MovementDirection.RIGHT
 ) {
 
@@ -21,17 +21,17 @@ class Snake(
      * check where's the head of the snake.
      */
     private fun checkForOutOfBounds() {
-        if (snakeX >= Gdx.graphics.width) {
-            snakeX = 0
+        if (x >= Gdx.graphics.width) {
+            x = 0
         }
-        if (snakeX < 0) {
-            snakeX = Gdx.graphics.width - SNAKE_MOVEMENT
+        if (x < 0) {
+            x = Gdx.graphics.width - SNAKE_MOVEMENT
         }
-        if (snakeY >= Gdx.graphics.height) {
-            snakeY = 0
+        if (y >= Gdx.graphics.height) {
+            y = 0
         }
-        if (snakeY < 0) {
-            snakeY = Gdx.graphics.height - SNAKE_MOVEMENT
+        if (y < 0) {
+            y = Gdx.graphics.height - SNAKE_MOVEMENT
         }
     }
 
@@ -41,19 +41,19 @@ class Snake(
     fun move() {
         when (direction) {
             MovementDirection.RIGHT -> {
-                snakeX += SNAKE_MOVEMENT
+                x += SNAKE_MOVEMENT
             }
 
             MovementDirection.LEFT -> {
-                snakeX -= SNAKE_MOVEMENT
+                x -= SNAKE_MOVEMENT
             }
 
             MovementDirection.UP -> {
-                snakeY += SNAKE_MOVEMENT
+                y += SNAKE_MOVEMENT
             }
 
             MovementDirection.DOWN -> {
-                snakeY -= SNAKE_MOVEMENT
+                y -= SNAKE_MOVEMENT
             }
         }
         // after moving, if it's out of bounds,

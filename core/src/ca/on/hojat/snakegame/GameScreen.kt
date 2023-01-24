@@ -42,6 +42,7 @@ class GameScreen : ScreenAdapter() {
             snake.move()
         }
 
+        checkAppleCollision()
         checkAndPlaceApple()
         clearScreen()
         draw()
@@ -58,16 +59,16 @@ class GameScreen : ScreenAdapter() {
         batch.begin()
         // draw the snake
         batch.draw(
-            snake.snakeHead,
-            snake.snakeX.toFloat(),
-            snake.snakeY.toFloat()
+            snake.headTexture,
+            snake.x.toFloat(),
+            snake.y.toFloat()
         )
         // draw the apple
-        if (apple.isAppleAvailable) {
+        if (apple.isAvailable) {
             batch.draw(
-                apple.apple,
-                apple.appleX.toFloat(),
-                apple.appleY.toFloat()
+                apple.texture,
+                apple.x.toFloat(),
+                apple.y.toFloat()
             )
         }
         // stop drawing
@@ -75,14 +76,23 @@ class GameScreen : ScreenAdapter() {
     }
 
     private fun checkAndPlaceApple() {
-        if (!apple.isAppleAvailable) {
-            while (apple.appleX == snake.snakeX && apple.appleY == snake.snakeY) {
+        if (!apple.isAvailable) {
+            while (apple.x == snake.x && apple.y == snake.y) {
                 with(apple) {
-                    appleX = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
-                    appleY = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
-                    isAppleAvailable = true
+                    x = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
+                    y = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
+                    isAvailable = true
                 }
             }
+        }
+    }
+
+    /**
+     * Checks if there has been a collision between snake's head and the apple.
+     */
+    private fun checkAppleCollision() {
+        if (apple.isAvailable && apple.x == snake.x && apple.y == snake.y) {
+            apple.isAvailable = false
         }
     }
 
