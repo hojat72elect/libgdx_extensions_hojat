@@ -21,6 +21,8 @@ class GameScreen : ScreenAdapter() {
 
     override fun render(delta: Float) {
 
+        // read user's input
+        snake.queryInput()
         /**
          * Here we update the time. With the help of the logic that
          * we define in here, we have a good understanding of the
@@ -33,7 +35,6 @@ class GameScreen : ScreenAdapter() {
         if (timer <= 0) {
             timer = MOVE_TIME
             // all the stuff we wanna do at each step of the timer
-            snake.queryInput()
             snake.move()
         }
 
