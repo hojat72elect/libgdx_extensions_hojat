@@ -1,6 +1,6 @@
 package ca.on.hojat.snakegame
 
-import ca.on.hojat.snakegame.snake.Snake
+import ca.on.hojat.snakegame.gameobjects.Snake
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.Color

@@ -1,4 +1,4 @@
-package ca.on.hojat.snakegame.snake
+package ca.on.hojat.snakegame.gameobjects
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
