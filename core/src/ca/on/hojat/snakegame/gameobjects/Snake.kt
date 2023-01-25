@@ -13,6 +13,7 @@ import com.badlogic.gdx.Input
  */
 class Snake(
     var head: BaseGameObject,
+    var body: Array<BaseGameObject> = emptyArray(),
     private var direction: MovementDirection = MovementDirection.RIGHT
 ) {
 
@@ -60,7 +61,6 @@ class Snake(
         checkForOutOfBounds()
     }
 
-
     /**
      * the snake related user inputs are queried by itself (just for now).
      *
@@ -72,6 +72,12 @@ class Snake(
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) direction = MovementDirection.RIGHT
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) direction = MovementDirection.UP
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = MovementDirection.DOWN
+    }
+
+    private fun moveSnakeBody() {
+        if (body.size > 0) {
+
+        }
     }
 
     companion object {

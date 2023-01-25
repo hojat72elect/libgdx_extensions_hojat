@@ -2,31 +2,26 @@ package ca.on.hojat.snakegame.screens
 
 import ca.on.hojat.snakegame.base.BaseGameObject
 import ca.on.hojat.snakegame.gameobjects.Apple
-import ca.on.hojat.snakegame.gameobjects.BodyPart
 import ca.on.hojat.snakegame.gameobjects.Snake
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.MathUtils
-import com.badlogic.gdx.utils.Array
 
 class GameScreen : ScreenAdapter() {
 
     private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
     private lateinit var snake: Snake
-    private lateinit var snakeBody: BodyPart
     private lateinit var apple: Apple
-    private val bodyParts = Array<BodyPart>()
+
 
     override fun resize(width: Int, height: Int) {
         spriteBatch = SpriteBatch()
         snake = Snake(head = BaseGameObject(Texture(Gdx.files.internal("snakehead.png"))))
-        snakeBody = BodyPart(Texture(Gdx.files.internal("snakebody.png")))
         apple = Apple(Texture(Gdx.files.internal("apple.png")))
     }
 
@@ -99,15 +94,17 @@ class GameScreen : ScreenAdapter() {
      */
     private fun checkAppleCollision() {
         if (apple.isAvailable && apple.xPosition == snake.head.xPosition && apple.yPosition == snake.head.yPosition) {
-            snakeBody.updatePosition(snake.head.xPosition, snake.head.yPosition)
-            bodyParts.insert(0, snakeBody)
-            apple.isAvailable = false
-        }
-    }
 
-    private fun drawBodyPart(batch: Batch, bodyPart: BodyPart, snake: Snake) {
-        if (!(bodyPart.xPosition == snake.head.xPosition && bodyPart.yPosition == snake.head.yPosition)) {
-            batch.draw(bodyPart.texture, bodyPart.xPosition.toFloat(), bodyPart.yPosition.toFloat())
+            // add another part to the end of snake body
+            val newBodyPart = BaseGameObject(
+                Texture(Gdx.files.internal("snakeBody.png")),
+                snake.head.xPosition,
+                snake.head.yPosition
+            )
+            snake.body[0] = newBodyPart
+
+            // update apple state
+            apple.isAvailable = false
         }
     }
 
