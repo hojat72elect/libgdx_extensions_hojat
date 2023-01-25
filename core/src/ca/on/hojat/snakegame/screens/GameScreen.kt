@@ -65,7 +65,7 @@ class GameScreen : ScreenAdapter() {
         spriteBatch.begin()
         // draw the snake
         spriteBatch.draw(
-            snake.headTexture,
+            snake.head,
             snake.xPosition.toFloat(),
             snake.yPosition.toFloat()
         )

@@ -7,14 +7,14 @@ import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
 
 /**
- * @param headTexture: The texture that shows the head of the snake.
+ * @param head: The texture that shows the head of the snake.
  *
  * the xPosition and yPosition of this Object will refer to snake's head location.
  */
 class Snake(
-    var headTexture: Texture,
+    var head: Texture,
     private var direction: MovementDirection = MovementDirection.RIGHT
-) : BaseGameObject(headTexture) {
+) : BaseGameObject(head) {
 
     /**
      * check where's the head of the snake.

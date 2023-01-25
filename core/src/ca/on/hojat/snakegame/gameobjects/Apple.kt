@@ -4,6 +4,6 @@ import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.graphics.Texture
 
 class Apple(
-    appleTexture: Texture,
+    texture: Texture,
     var isAvailable: Boolean = false
-) : BaseGameObject(appleTexture)
+) : BaseGameObject(texture)
