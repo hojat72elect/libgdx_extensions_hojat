@@ -1,11 +1,10 @@
 package ca.on.hojat.snakegame.gameobjects
 
+import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.graphics.Texture
 
 
-data class Apple(
-    var texture: Texture,
-    var isAvailable: Boolean = false,
-    var x: Int = 0,
-    var y: Int = 0
-)
+class Apple(
+    appleTexture: Texture,
+    var isAvailable: Boolean = false
+) : BaseGameObject(appleTexture)

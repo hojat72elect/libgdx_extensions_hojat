@@ -1,37 +1,35 @@
 package ca.on.hojat.snakegame.gameobjects
 
+import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
 
 /**
  * @param headTexture: The texture that shows the head of the snake.
- * @param headX
- * @param headY : These 2 are the coordinates of the snake (its head)
  *
+ * the xPosition and yPosition of this Object will refer to snake's head location.
  */
 class Snake(
     var headTexture: Texture,
-    var headX: Int = 0,
-    var headY: Int = 0,
     private var direction: MovementDirection = MovementDirection.RIGHT
-) {
+) : BaseGameObject(headTexture) {
 
     /**
      * check where's the head of the snake.
      */
     private fun checkForOutOfBounds() {
-        if (headX >= Gdx.graphics.width) {
-            headX = 0
+        if (xPosition >= Gdx.graphics.width) {
+            xPosition = 0
         }
-        if (headX < 0) {
-            headX = Gdx.graphics.width - SNAKE_MOVEMENT
+        if (xPosition < 0) {
+            xPosition = Gdx.graphics.width - SNAKE_MOVEMENT
         }
-        if (headY >= Gdx.graphics.height) {
-            headY = 0
+        if (yPosition >= Gdx.graphics.height) {
+            yPosition = 0
         }
-        if (headY < 0) {
-            headY = Gdx.graphics.height - SNAKE_MOVEMENT
+        if (yPosition < 0) {
+            yPosition = Gdx.graphics.height - SNAKE_MOVEMENT
         }
     }
 
@@ -41,19 +39,19 @@ class Snake(
     fun move() {
         when (direction) {
             MovementDirection.RIGHT -> {
-                headX += SNAKE_MOVEMENT
+                xPosition += SNAKE_MOVEMENT
             }
 
             MovementDirection.LEFT -> {
-                headX -= SNAKE_MOVEMENT
+                xPosition -= SNAKE_MOVEMENT
             }
 
             MovementDirection.UP -> {
-                headY += SNAKE_MOVEMENT
+                yPosition += SNAKE_MOVEMENT
             }
 
             MovementDirection.DOWN -> {
-                headY -= SNAKE_MOVEMENT
+                yPosition -= SNAKE_MOVEMENT
             }
         }
         // after moving, if it's out of bounds,
