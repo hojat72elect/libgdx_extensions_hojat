@@ -1,7 +1,7 @@
 package ca.on.hojat.snakegame
 
 import ca.on.hojat.snakegame.gameobjects.Apple
-import ca.on.hojat.snakegame.gameobjects.NewBodyPart
+import ca.on.hojat.snakegame.gameobjects.BodyPart
 import ca.on.hojat.snakegame.gameobjects.Snake
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
@@ -18,14 +18,14 @@ class GameScreen : ScreenAdapter() {
     private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
     private lateinit var snake: Snake
-    private lateinit var snakeBody: NewBodyPart
+    private lateinit var snakeBody: BodyPart
     private lateinit var apple: Apple
-    private val bodyParts = Array<NewBodyPart>()
+    private val bodyParts = Array<BodyPart>()
 
     override fun resize(width: Int, height: Int) {
         spriteBatch = SpriteBatch()
         snake = Snake(Texture(Gdx.files.internal("snakehead.png")))
-        snakeBody = NewBodyPart(Texture(Gdx.files.internal("snakebody.png")))
+        snakeBody = BodyPart(Texture(Gdx.files.internal("snakebody.png")))
         apple = Apple(Texture(Gdx.files.internal("apple.png")))
     }
 
@@ -104,7 +104,7 @@ class GameScreen : ScreenAdapter() {
         }
     }
 
-    private fun drawBodyPart(batch: Batch, bodyPart: NewBodyPart, snake: Snake) {
+    private fun drawBodyPart(batch: Batch, bodyPart: BodyPart, snake: Snake) {
         if (!(bodyPart.xPosition == snake.xPosition && bodyPart.yPosition == snake.yPosition)) {
             batch.draw(bodyPart.texture, bodyPart.xPosition.toFloat(), bodyPart.yPosition.toFloat())
         }

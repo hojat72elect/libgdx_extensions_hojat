@@ -3,7 +3,7 @@ package ca.on.hojat.snakegame.gameobjects
 import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.graphics.Texture
 
-class NewBodyPart(bodyPartTexture: Texture) : BaseGameObject(bodyPartTexture) {
+class BodyPart(bodyPartTexture: Texture) : BaseGameObject(bodyPartTexture) {
     fun updatePosition(newX: Int, newY: Int) {
         xPosition = newX
         yPosition = newY
