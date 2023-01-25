@@ -7,9 +7,10 @@ import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
 
 /**
- * @param head: The texture that shows the head of the snake.
+ * @param head: the head of the snake is a [BaseGameObject] of its own because
+ * it's separate from body in the form of the info that it contains.
  *
- * the xPosition and yPosition of this Object will refer to snake's head location.
+ *
  */
 class Snake(
     var head: Texture,
