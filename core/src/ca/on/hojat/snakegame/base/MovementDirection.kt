@@ -1,4 +1,4 @@
-package ca.on.hojat.snakegame.gameobjects
+package ca.on.hojat.snakegame.base
 
 /**
  * All the various directions that a character (in this case, a snake)

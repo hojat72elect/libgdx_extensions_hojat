@@ -1,4 +1,4 @@
-package ca.on.hojat.snakegame
+package ca.on.hojat.snakegame.screens
 
 import ca.on.hojat.snakegame.gameobjects.Apple
 import ca.on.hojat.snakegame.gameobjects.BodyPart

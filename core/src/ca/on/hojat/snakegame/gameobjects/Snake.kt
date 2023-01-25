@@ -1,6 +1,7 @@
 package ca.on.hojat.snakegame.gameobjects
 
 import ca.on.hojat.snakegame.base.BaseGameObject
+import ca.on.hojat.snakegame.base.MovementDirection
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
