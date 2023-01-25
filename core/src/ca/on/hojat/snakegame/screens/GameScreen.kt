@@ -1,5 +1,6 @@
 package ca.on.hojat.snakegame.screens
 
+import ca.on.hojat.snakegame.base.BaseGameObject
 import ca.on.hojat.snakegame.gameobjects.Apple
 import ca.on.hojat.snakegame.gameobjects.BodyPart
 import ca.on.hojat.snakegame.gameobjects.Snake
@@ -24,7 +25,7 @@ class GameScreen : ScreenAdapter() {
 
     override fun resize(width: Int, height: Int) {
         spriteBatch = SpriteBatch()
-        snake = Snake(Texture(Gdx.files.internal("snakehead.png")))
+        snake = Snake(head = BaseGameObject(Texture(Gdx.files.internal("snakehead.png"))))
         snakeBody = BodyPart(Texture(Gdx.files.internal("snakebody.png")))
         apple = Apple(Texture(Gdx.files.internal("apple.png")))
     }
@@ -65,9 +66,9 @@ class GameScreen : ScreenAdapter() {
         spriteBatch.begin()
         // draw the snake
         spriteBatch.draw(
-            snake.head,
-            snake.xPosition.toFloat(),
-            snake.yPosition.toFloat()
+            snake.head.texture,
+            snake.head.xPosition.toFloat(),
+            snake.head.yPosition.toFloat()
         )
         // draw the apple
         if (apple.isAvailable) {
@@ -83,7 +84,7 @@ class GameScreen : ScreenAdapter() {
 
     private fun checkAndPlaceApple() {
         if (!apple.isAvailable) {
-            while (apple.xPosition == snake.xPosition && apple.yPosition == snake.yPosition) {
+            while (apple.xPosition == snake.head.xPosition && apple.yPosition == snake.head.yPosition) {
                 with(apple) {
                     xPosition = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
                     yPosition = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
@@ -97,15 +98,15 @@ class GameScreen : ScreenAdapter() {
      * Checks if there has been a collision between snake's head and the apple.
      */
     private fun checkAppleCollision() {
-        if (apple.isAvailable && apple.xPosition == snake.xPosition && apple.yPosition == snake.yPosition) {
-            snakeBody.updatePosition(snake.xPosition, snake.yPosition)
+        if (apple.isAvailable && apple.xPosition == snake.head.xPosition && apple.yPosition == snake.head.yPosition) {
+            snakeBody.updatePosition(snake.head.xPosition, snake.head.yPosition)
             bodyParts.insert(0, snakeBody)
             apple.isAvailable = false
         }
     }
 
     private fun drawBodyPart(batch: Batch, bodyPart: BodyPart, snake: Snake) {
-        if (!(bodyPart.xPosition == snake.xPosition && bodyPart.yPosition == snake.yPosition)) {
+        if (!(bodyPart.xPosition == snake.head.xPosition && bodyPart.yPosition == snake.head.yPosition)) {
             batch.draw(bodyPart.texture, bodyPart.xPosition.toFloat(), bodyPart.yPosition.toFloat())
         }
     }
