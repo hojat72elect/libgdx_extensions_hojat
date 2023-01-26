@@ -13,7 +13,6 @@ import com.badlogic.gdx.Input
  */
 class Snake(
     var head: BaseGameObject,
-    var body: Array<BaseGameObject> = emptyArray(),
     private var direction: MovementDirection = MovementDirection.RIGHT
 ) {
 

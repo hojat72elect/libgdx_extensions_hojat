@@ -6,4 +6,4 @@ import com.badlogic.gdx.graphics.Texture
 class Apple(
     texture: Texture,
     var isAvailable: Boolean = false
-) : BaseGameObject(texture)
+) : BaseGameObject(texture=texture)

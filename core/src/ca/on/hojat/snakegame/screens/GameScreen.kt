@@ -21,7 +21,13 @@ class GameScreen : ScreenAdapter() {
 
     override fun resize(width: Int, height: Int) {
         spriteBatch = SpriteBatch()
-        snake = Snake(head = BaseGameObject(Texture(Gdx.files.internal("snakehead.png"))))
+        snake = Snake(
+            head = BaseGameObject(
+                texture = Texture(
+                    Gdx.files.internal("snakehead.png")
+                )
+            )
+        )
         apple = Apple(Texture(Gdx.files.internal("apple.png")))
     }
 

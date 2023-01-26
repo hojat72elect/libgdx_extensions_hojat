@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.Texture
  * de basic things each game object will have is a texture and 2D coordinates.
  */
 open class BaseGameObject(
-    var texture: Texture,
     var xPosition: Int = 0,
-    var yPosition: Int = 0
+    var yPosition: Int = 0,
+    var texture: Texture
 )
