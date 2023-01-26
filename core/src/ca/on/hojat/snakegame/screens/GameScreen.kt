@@ -13,13 +13,13 @@ class GameScreen : ScreenAdapter() {
 
     private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
-    private var snake= Snake()
-    private var apple= Apple("apple.png")
+    private var snake = Snake("snakehead.png")
+    private var apple = Apple("apple.png")
 
 
     override fun resize(width: Int, height: Int) {
         spriteBatch = SpriteBatch()
-        snake.head.loadTexture()
+        snake.loadTexture()
         apple.loadTexture()
     }
 
@@ -59,9 +59,9 @@ class GameScreen : ScreenAdapter() {
         spriteBatch.begin()
         // draw the snake
         spriteBatch.draw(
-            snake.head.textureGraphic,
-            snake.head.xPosition.toFloat(),
-            snake.head.yPosition.toFloat()
+            snake.textureGraphic,
+            snake.xPosition.toFloat(),
+            snake.yPosition.toFloat()
         )
         // draw the apple
         if (apple.isAvailable) {
@@ -77,7 +77,7 @@ class GameScreen : ScreenAdapter() {
 
     private fun checkAndPlaceApple() {
         if (!apple.isAvailable) {
-            while (apple.xPosition == snake.head.xPosition && apple.yPosition == snake.head.yPosition) {
+            while (apple.xPosition == snake.xPosition && apple.yPosition == snake.yPosition) {
                 with(apple) {
                     xPosition = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
                     yPosition = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
@@ -91,7 +91,7 @@ class GameScreen : ScreenAdapter() {
      * Checks if there has been a collision between snake's head and the apple.
      */
     private fun checkAppleCollision() {
-        if (apple.isAvailable && apple.xPosition == snake.head.xPosition && apple.yPosition == snake.head.yPosition) {
+        if (apple.isAvailable && apple.xPosition == snake.xPosition && apple.yPosition == snake.yPosition) {
 
             apple.isAvailable = false
         }

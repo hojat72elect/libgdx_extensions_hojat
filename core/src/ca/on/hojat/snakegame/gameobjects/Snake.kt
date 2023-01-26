@@ -12,27 +12,28 @@ import com.badlogic.gdx.Input
  *
  */
 class Snake(
+    texture: String,
     private var direction: MovementDirection = MovementDirection.RIGHT
-) {
+) : BaseGameObject(textureAddress = texture) {
 
-    var head = BaseGameObject("snakehead.png")
+//    var head = BaseGameObject("")
 
 
     /**
      * check where's the head of the snake.
      */
     private fun checkForOutOfBounds() {
-        if (head.xPosition >= Gdx.graphics.width) {
-            head.xPosition = 0
+        if (xPosition >= Gdx.graphics.width) {
+            xPosition = 0
         }
-        if (head.xPosition < 0) {
-            head.xPosition = Gdx.graphics.width - SNAKE_MOVEMENT
+        if (xPosition < 0) {
+            xPosition = Gdx.graphics.width - SNAKE_MOVEMENT
         }
-        if (head.yPosition >= Gdx.graphics.height) {
-            head.yPosition = 0
+        if (yPosition >= Gdx.graphics.height) {
+            yPosition = 0
         }
-        if (head.yPosition < 0) {
-            head.yPosition = Gdx.graphics.height - SNAKE_MOVEMENT
+        if (yPosition < 0) {
+            yPosition = Gdx.graphics.height - SNAKE_MOVEMENT
         }
     }
 
@@ -42,19 +43,19 @@ class Snake(
     fun move() {
         when (direction) {
             MovementDirection.RIGHT -> {
-                head.xPosition += SNAKE_MOVEMENT
+                xPosition += SNAKE_MOVEMENT
             }
 
             MovementDirection.LEFT -> {
-                head.xPosition -= SNAKE_MOVEMENT
+                xPosition -= SNAKE_MOVEMENT
             }
 
             MovementDirection.UP -> {
-                head.yPosition += SNAKE_MOVEMENT
+                yPosition += SNAKE_MOVEMENT
             }
 
             MovementDirection.DOWN -> {
-                head.yPosition -= SNAKE_MOVEMENT
+                yPosition -= SNAKE_MOVEMENT
             }
         }
         // after moving, if it's out of bounds,
