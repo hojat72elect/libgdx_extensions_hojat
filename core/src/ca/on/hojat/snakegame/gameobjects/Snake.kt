@@ -1,20 +1,22 @@
 package ca.on.hojat.snakegame.gameobjects
 
-import ca.on.hojat.snakegame.base.BaseGameObject
 import ca.on.hojat.snakegame.base.MovementDirection
+import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
 
 /**
- * @param head: the head of the snake is a [BaseGameObject] of its own because
+ *  head: the head of the snake is a [BaseGameObject] of its own because
  * it's separate from body in the form of the info that it contains.
  *
  *
  */
 class Snake(
-    var head: BaseGameObject,
     private var direction: MovementDirection = MovementDirection.RIGHT
 ) {
+
+    var head = BaseGameObject("snakehead.png")
+
 
     /**
      * check where's the head of the snake.

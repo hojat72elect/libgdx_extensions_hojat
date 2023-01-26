@@ -1,13 +1,11 @@
 package ca.on.hojat.snakegame.screens
 
-import ca.on.hojat.snakegame.base.BaseGameObject
 import ca.on.hojat.snakegame.gameobjects.Apple
 import ca.on.hojat.snakegame.gameobjects.Snake
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
-import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.MathUtils
 
@@ -15,20 +13,14 @@ class GameScreen : ScreenAdapter() {
 
     private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
-    private lateinit var snake: Snake
-    private lateinit var apple: Apple
+    private var snake= Snake()
+    private var apple= Apple("apple.png")
 
 
     override fun resize(width: Int, height: Int) {
         spriteBatch = SpriteBatch()
-        snake = Snake(
-            head = BaseGameObject(
-                texture = Texture(
-                    Gdx.files.internal("snakehead.png")
-                )
-            )
-        )
-        apple = Apple(Texture(Gdx.files.internal("apple.png")))
+        snake.head.loadTexture()
+        apple.loadTexture()
     }
 
     override fun render(delta: Float) {
@@ -67,14 +59,14 @@ class GameScreen : ScreenAdapter() {
         spriteBatch.begin()
         // draw the snake
         spriteBatch.draw(
-            snake.head.texture,
+            snake.head.textureGraphic,
             snake.head.xPosition.toFloat(),
             snake.head.yPosition.toFloat()
         )
         // draw the apple
         if (apple.isAvailable) {
             spriteBatch.draw(
-                apple.texture,
+                apple.textureGraphic,
                 apple.xPosition.toFloat(),
                 apple.yPosition.toFloat()
             )
