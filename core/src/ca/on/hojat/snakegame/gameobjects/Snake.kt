@@ -74,12 +74,6 @@ class Snake(
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = MovementDirection.DOWN
     }
 
-    private fun moveSnakeBody() {
-        if (body.size > 0) {
-
-        }
-    }
-
     companion object {
         // speed of snake's movement
         const val SNAKE_MOVEMENT = 32

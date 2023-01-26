@@ -95,15 +95,6 @@ class GameScreen : ScreenAdapter() {
     private fun checkAppleCollision() {
         if (apple.isAvailable && apple.xPosition == snake.head.xPosition && apple.yPosition == snake.head.yPosition) {
 
-            // add another part to the end of snake body
-            val newBodyPart = BaseGameObject(
-                Texture(Gdx.files.internal("snakeBody.png")),
-                snake.head.xPosition,
-                snake.head.yPosition
-            )
-            snake.body[0] = newBodyPart
-
-            // update apple state
             apple.isAvailable = false
         }
     }
