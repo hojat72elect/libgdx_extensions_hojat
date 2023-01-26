@@ -4,14 +4,18 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
 
 open class BaseGameObject(
-    var textureAddress: String
+    vararg val textureAddress: String
 ) {
     var xPosition = 0
     var yPosition = 0
-    lateinit var textureGraphic: Texture
+    val textureGraphic = mutableListOf<Texture>()
 
     fun loadTexture() {
-        textureGraphic = Texture(Gdx.files.internal(textureAddress))
+        textureAddress.forEach {
+            textureGraphic.add(
+                Texture(Gdx.files.internal(it))
+            )
+        }
     }
 
 }

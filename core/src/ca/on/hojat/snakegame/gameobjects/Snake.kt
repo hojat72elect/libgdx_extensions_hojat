@@ -14,7 +14,7 @@ import com.badlogic.gdx.Input
 class Snake(
     texture: String,
     private var direction: MovementDirection = MovementDirection.RIGHT
-) : BaseGameObject(textureAddress = texture) {
+) : BaseGameObject(textureAddress = *arrayOf(texture)) {
 
 //    var head = BaseGameObject("")
 

@@ -59,14 +59,14 @@ class GameScreen : ScreenAdapter() {
         spriteBatch.begin()
         // draw the snake
         spriteBatch.draw(
-            snake.textureGraphic,
+            snake.textureGraphic.first(),
             snake.xPosition.toFloat(),
             snake.yPosition.toFloat()
         )
         // draw the apple
         if (apple.isAvailable) {
             spriteBatch.draw(
-                apple.textureGraphic,
+                apple.textureGraphic.first(),
                 apple.xPosition.toFloat(),
                 apple.yPosition.toFloat()
             )
