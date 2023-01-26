@@ -13,8 +13,8 @@ class GameScreen : ScreenAdapter() {
 
     private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
-    private var snake = Snake("snakehead.png")
-    private var apple = Apple("apple.png")
+    private var snake = Snake()
+    private var apple = Apple()
 
 
     override fun resize(width: Int, height: Int) {

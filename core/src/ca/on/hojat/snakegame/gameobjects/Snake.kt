@@ -12,12 +12,8 @@ import com.badlogic.gdx.Input
  *
  */
 class Snake(
-    texture: String,
     private var direction: MovementDirection = MovementDirection.RIGHT
-) : BaseGameObject(textureAddress = *arrayOf(texture)) {
-
-//    var head = BaseGameObject("")
-
+) : BaseGameObject(textureAddress = *arrayOf("snakehead.png")) {
 
     /**
      * check where's the head of the snake.
