@@ -4,6 +4,7 @@ import ca.on.hojat.snakegame.base.MovementDirection
 import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
+import com.badlogic.gdx.graphics.Texture
 
 /**
  *  head: the head of the snake is a [BaseGameObject] of its own because
@@ -13,7 +14,13 @@ import com.badlogic.gdx.Input
  */
 class Snake(
     private var direction: MovementDirection = MovementDirection.RIGHT
-) : BaseGameObject(textureAddress = *arrayOf("snakehead.png")) {
+) : BaseGameObject(textureAddress = *arrayOf("snakehead.png", "snakebody.png")) {
+
+    // the texture that will be used for snake body parts
+    private lateinit var bodyTexture: Texture
+
+    // all the body parts of the snake (we will add to it)
+    val bodyParts = ArrayList<BaseGameObject>()
 
     /**
      * check where's the head of the snake.
@@ -70,6 +77,19 @@ class Snake(
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) direction = MovementDirection.RIGHT
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) direction = MovementDirection.UP
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = MovementDirection.DOWN
+    }
+
+    override fun loadTexture() {
+        super.loadTexture()
+        bodyTexture = textureGraphic[1]
+    }
+
+    fun addBodyPart() {
+        val newBodyPart = BaseGameObject(bodyTexture)
+        newBodyPart.xPosition = xPosition
+        newBodyPart.yPosition = yPosition
+
+        bodyParts.add(newBodyPart)
     }
 
     companion object {
