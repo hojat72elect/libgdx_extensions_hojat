@@ -12,9 +12,10 @@ import com.badlogic.gdx.graphics.Texture
  *
  *
  */
-class Snake(
-    private var direction: MovementDirection = MovementDirection.RIGHT
-) : BaseGameObject(textureAddress = *arrayOf("snakehead.png", "snakebody.png")) {
+class Snake() : BaseGameObject(
+    movementDirection = MovementDirection.RIGHT,
+    textureAddress = *arrayOf("snakehead.png", "snakebody.png")
+) {
 
     // the texture that will be used for snake body parts
     private lateinit var bodyTexture: Texture
@@ -44,7 +45,7 @@ class Snake(
      * the director has told this actor to move.
      */
     fun move() {
-        when (direction) {
+        when (movementDirection) {
             MovementDirection.RIGHT -> {
                 xPosition += SNAKE_MOVEMENT
             }
@@ -73,10 +74,10 @@ class Snake(
      * a lot better for the sake of performance.
      */
     fun queryInput() {
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) direction = MovementDirection.LEFT
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) direction = MovementDirection.RIGHT
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) direction = MovementDirection.UP
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) direction = MovementDirection.DOWN
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) movementDirection = MovementDirection.LEFT
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) movementDirection = MovementDirection.RIGHT
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) movementDirection = MovementDirection.UP
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) movementDirection = MovementDirection.DOWN
     }
 
     override fun loadTexture() {
