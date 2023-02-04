@@ -9,10 +9,7 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.MathUtils
 
-/**
- * This is the game that "James Cook" develops in the chapters 2 and 3
- * of his book. I wasn't able to fully implement the snake; so , I let it go (for now).
- */
+
 class SnakeGameScreen : ScreenAdapter() {
 
     private lateinit var spriteBatch: SpriteBatch
