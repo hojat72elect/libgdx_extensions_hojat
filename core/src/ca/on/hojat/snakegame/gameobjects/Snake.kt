@@ -12,16 +12,13 @@ import com.badlogic.gdx.graphics.Texture
  *
  *
  */
-class Snake() : BaseGameObject(
+class Snake : BaseGameObject(
     movementDirection = MovementDirection.RIGHT,
     textureAddress = *arrayOf("snakehead.png", "snakebody.png")
 ) {
 
     // the texture that will be used for snake body parts
     private lateinit var bodyTexture: Texture
-
-    // all the body parts of the snake (we will add to it)
-    val bodyParts = ArrayList<BaseGameObject>()
 
     /**
      * check where's the head of the snake.
@@ -83,14 +80,6 @@ class Snake() : BaseGameObject(
     override fun loadTexture() {
         super.loadTexture()
         bodyTexture = textureGraphic[1]
-    }
-
-    fun addBodyPart() {
-        val newBodyPart = BaseGameObject(bodyTexture)
-        newBodyPart.xPosition = xPosition
-        newBodyPart.yPosition = yPosition
-
-        bodyParts.add(newBodyPart)
     }
 
     companion object {

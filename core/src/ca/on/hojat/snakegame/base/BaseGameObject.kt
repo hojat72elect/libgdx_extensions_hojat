@@ -9,13 +9,6 @@ open class BaseGameObject(
     var movementDirection: MovementDirection? = null,
     vararg val textureAddress: String
 ) {
-    /**
-     *  For the times you wanna create a GameObject with a Texture you already have
-     *  (and not with the address of that texture).
-     */
-    constructor(inputTexture: Texture) : this() {
-        textureGraphic.add(inputTexture)
-    }
 
     /**
      * The list of Textures used for drawing this game object.

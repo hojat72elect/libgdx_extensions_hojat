@@ -92,7 +92,6 @@ class GameScreen : ScreenAdapter() {
      */
     private fun checkAppleCollision() {
         if (apple.isAvailable && apple.xPosition == snake.xPosition && apple.yPosition == snake.yPosition) {
-            snake.addBodyPart()
             apple.isAvailable = false
         }
     }
