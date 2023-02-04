@@ -1,5 +1,6 @@
 package ca.on.hojat.snakegame;
 
+import ca.on.hojat.snakegame.snakegame.SnakeGame;
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.uikit.UIApplication;
 

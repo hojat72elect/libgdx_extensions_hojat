@@ -1,4 +1,4 @@
-package ca.on.hojat.snakegame.gameobjects
+package ca.on.hojat.snakegame.snakegame.gameobjects
 
 import ca.on.hojat.snakegame.base.MovementDirection
 import ca.on.hojat.snakegame.base.BaseGameObject

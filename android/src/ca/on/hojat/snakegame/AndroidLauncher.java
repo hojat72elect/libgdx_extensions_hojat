@@ -2,6 +2,7 @@ package ca.on.hojat.snakegame;
 
 import android.os.Bundle;
 
+import ca.on.hojat.snakegame.snakegame.SnakeGame;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 

@@ -1,7 +1,7 @@
-package ca.on.hojat.snakegame.screens
+package ca.on.hojat.snakegame.snakegame.screens
 
-import ca.on.hojat.snakegame.gameobjects.Apple
-import ca.on.hojat.snakegame.gameobjects.Snake
+import ca.on.hojat.snakegame.snakegame.gameobjects.Apple
+import ca.on.hojat.snakegame.snakegame.gameobjects.Snake
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.Color
@@ -9,7 +9,11 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.MathUtils
 
-class GameScreen : ScreenAdapter() {
+/**
+ * This is the game that "James Cook" develops in the chapters 2 and 3
+ * of his book. I wasn't able to fully implement the snake; so , I let it go (for now).
+ */
+class SnakeGameScreen : ScreenAdapter() {
 
     private lateinit var spriteBatch: SpriteBatch
     private var timer = MOVE_TIME
