@@ -1,5 +1,6 @@
-package ca.on.hojat.snakegame.flappybird
+package ca.on.hojat.snakegame.flappybird.screens
 
+import ca.on.hojat.snakegame.flappybird.gameobjects.Bird
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.Camera
@@ -19,6 +20,9 @@ class FlappyBirdScreen : ScreenAdapter() {
     private lateinit var camera: Camera
     private lateinit var batch: SpriteBatch
 
+    // game objects to be drawn
+    private val flappy = Bird()
+
 
     override fun resize(width: Int, height: Int) {
 //        super.resize(width, height)
@@ -31,7 +35,6 @@ class FlappyBirdScreen : ScreenAdapter() {
      * all the warmup code happens here.
      */
     override fun show() {
-//        super.show()
         camera = OrthographicCamera()
         camera.position.set(WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 0f)
         camera.update()
@@ -41,12 +44,17 @@ class FlappyBirdScreen : ScreenAdapter() {
     }
 
     override fun render(delta: Float) {
-//        super.render(delta)
         clearScreen()
         batch.projectionMatrix = camera.projection
         batch.transformMatrix = camera.view
         batch.begin()
         batch.end()
+
+        shapeRenderer.projectionMatrix = camera.projection
+        shapeRenderer.transformMatrix = camera.view
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line)
+        flappy.drawDebug(shapeRenderer)
+        shapeRenderer.end()
     }
 
     private fun clearScreen() {

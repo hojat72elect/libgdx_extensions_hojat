@@ -25,13 +25,13 @@ class Snake : BaseGameObject(
      */
     private fun checkForOutOfBounds() {
         if (xPosition >= Gdx.graphics.width) {
-            xPosition = 0
+            xPosition = 0f
         }
         if (xPosition < 0) {
             xPosition = Gdx.graphics.width - SNAKE_MOVEMENT
         }
         if (yPosition >= Gdx.graphics.height) {
-            yPosition = 0
+            yPosition = 0f
         }
         if (yPosition < 0) {
             yPosition = Gdx.graphics.height - SNAKE_MOVEMENT
@@ -84,6 +84,6 @@ class Snake : BaseGameObject(
 
     companion object {
         // speed of snake's movement
-        const val SNAKE_MOVEMENT = 32
+        const val SNAKE_MOVEMENT = 32f
     }
 }

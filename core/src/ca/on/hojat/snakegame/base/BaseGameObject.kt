@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
 
 open class BaseGameObject(
-    var xPosition: Int = 0,
-    var yPosition: Int = 0,
+    var xPosition: Float = 0f,
+    var yPosition: Float = 0f,
     var movementDirection: MovementDirection? = null,
     vararg val textureAddress: String
 ) {

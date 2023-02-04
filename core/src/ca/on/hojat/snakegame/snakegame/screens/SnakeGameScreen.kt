@@ -61,15 +61,15 @@ class SnakeGameScreen : ScreenAdapter() {
         // draw the snake
         spriteBatch.draw(
             snake.textureGraphic.first(),
-            snake.xPosition.toFloat(),
-            snake.yPosition.toFloat()
+            snake.xPosition,
+            snake.yPosition
         )
         // draw the apple
         if (apple.isAvailable) {
             spriteBatch.draw(
                 apple.textureGraphic.first(),
-                apple.xPosition.toFloat(),
-                apple.yPosition.toFloat()
+                apple.xPosition,
+                apple.yPosition
             )
         }
         // stop drawing
@@ -80,8 +80,8 @@ class SnakeGameScreen : ScreenAdapter() {
         if (!apple.isAvailable) {
             while (apple.xPosition == snake.xPosition && apple.yPosition == snake.yPosition) {
                 with(apple) {
-                    xPosition = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
-                    yPosition = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1) * Snake.SNAKE_MOVEMENT
+                    xPosition = MathUtils.random(Gdx.graphics.width / Snake.SNAKE_MOVEMENT - 1f) * Snake.SNAKE_MOVEMENT
+                    yPosition = MathUtils.random(Gdx.graphics.height / Snake.SNAKE_MOVEMENT - 1f) * Snake.SNAKE_MOVEMENT
                     isAvailable = true
                 }
             }
