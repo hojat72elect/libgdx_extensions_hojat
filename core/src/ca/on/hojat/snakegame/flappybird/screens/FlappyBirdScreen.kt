@@ -41,6 +41,7 @@ class FlappyBirdScreen : ScreenAdapter() {
         viewPort = FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera)
         shapeRenderer = ShapeRenderer()
         batch = SpriteBatch()
+        flappy.move(WORLD_WIDTH / 4, WORLD_HEIGHT / 2)
     }
 
     override fun render(delta: Float) {
