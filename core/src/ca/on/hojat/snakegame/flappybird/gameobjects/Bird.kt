@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Circle
 class Bird : BaseGameObject() {
 
     private val collisionCircle = Circle(xPosition, yPosition, COLLISION_RADIUS)
+    private var ySpeed = 0f
 
     fun drawDebug(shapeRenderer: ShapeRenderer) {
         shapeRenderer.circle(collisionCircle.x, collisionCircle.y, collisionCircle.radius)
@@ -26,7 +27,19 @@ class Bird : BaseGameObject() {
         collisionCircle.y = yPosition
     }
 
+    fun update() {
+        ySpeed -= DIVE_ACCELERATION
+        move(xPosition, yPosition + ySpeed)
+    }
+
+    fun flyUp() {
+        ySpeed = FLY_ACCELERATION
+        move(xPosition, yPosition + ySpeed)
+    }
+
     companion object {
         const val COLLISION_RADIUS = 24f
+        const val DIVE_ACCELERATION = 0.30f
+        const val FLY_ACCELERATION = 5f
     }
 }
