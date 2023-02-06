@@ -16,12 +16,13 @@ import com.badlogic.gdx.utils.TimeUtils
 
 class RainDropGame : ApplicationAdapter() {
 
-    private val rainDrops = Array<Rectangle>()
+    private val rainDrops = Array<BaseGameObject>()
 
     // last time we spawned a rain drop
     private var lastDropTime = 0L
 
-    private val dropGameObject = BaseGameObject(
+    // I just use this object for holding and loading the rain drop texture once
+    private val dropTextureHolder = BaseGameObject(
         rectangle = Rectangle(),
         textureAddress = *arrayOf("droplet.png")
     )
@@ -37,13 +38,7 @@ class RainDropGame : ApplicationAdapter() {
     )
 
     private fun spawnRaindrop() {
-        val newRainDropInstance = Rectangle().apply {
-            x = MathUtils.random(0f, 800f - 64)
-            y = 480f
-            width = 64f
-            height = 64f
-        }
-
+        val newRainDropInstance = BaseGameObject(rectangle = Rectangle(MathUtils.random(0f, 800f - 64), 480f, 64f, 64f))
 
         rainDrops.add(newRainDropInstance)
         lastDropTime = TimeUtils.nanoTime()
@@ -61,7 +56,7 @@ class RainDropGame : ApplicationAdapter() {
         // create the sprite batch
         batch = SpriteBatch()
         // Load all the textures
-        dropGameObject.loadTexture()
+        dropTextureHolder.loadTexture()
         bucket.loadTexture()
 
         // position the bucket in our world
@@ -87,7 +82,7 @@ class RainDropGame : ApplicationAdapter() {
         batch.begin()
         batch.draw(bucket.textureGraphic.first(), bucket.rectangle.x, bucket.rectangle.y)
         for (rainDrop in rainDrops) {
-            batch.draw(dropGameObject.textureGraphic.first(), rainDrop.x, rainDrop.y)
+            batch.draw(dropTextureHolder.textureGraphic.first(), rainDrop.rectangle.x, rainDrop.rectangle.y)
         }
         batch.end()
         if (TimeUtils.nanoTime() - lastDropTime > 1_000_000_000) spawnRaindrop()
@@ -96,9 +91,9 @@ class RainDropGame : ApplicationAdapter() {
         if (bucket.rectangle.x < 0) bucket.rectangle.x = 0f
         if (bucket.rectangle.x > 800 - 64) bucket.rectangle.x = 800f - 64
         rainDrops.iterator().forEach { rainDrop ->
-            rainDrop.y -= 200 * Gdx.graphics.deltaTime
-            if (rainDrop.y + 64 < 0) rainDrops.removeValue(rainDrop, true)
-            if (rainDrop.overlaps(bucket.rectangle)) {
+            rainDrop.rectangle.y -= 200 * Gdx.graphics.deltaTime
+            if (rainDrop.rectangle.y + 64 < 0) rainDrops.removeValue(rainDrop, true)
+            if (rainDrop.rectangle.overlaps(bucket.rectangle)) {
                 dropSound.play()
                 rainDrops.removeValue(rainDrop, true)
             }
@@ -106,7 +101,7 @@ class RainDropGame : ApplicationAdapter() {
     }
 
     override fun dispose() {
-        dropGameObject.dispose()
+        dropTextureHolder.dispose()
         bucket.dispose()
         dropSound.dispose()
         rainMusic.dispose()
