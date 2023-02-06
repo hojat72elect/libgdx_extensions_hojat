@@ -1,6 +1,5 @@
 package ca.on.hojat.snakegame;
 
-import ca.on.hojat.snakegame.flappybird.FlappeeBeeGame;
 import ca.on.hojat.snakegame.raindropgame.RainDropGame;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
