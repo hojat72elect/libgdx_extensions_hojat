@@ -6,12 +6,15 @@ import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.utils.Disposable
 
 open class BaseGameObject(
-    var xPosition: Float = 0f,
-    var yPosition: Float = 0f,
     var movementDirection: MovementDirection? = null,
     val rectangle: Rectangle,
     vararg val textureAddress: String
 ) : Disposable {
+
+    val x = rectangle.x
+    val y = rectangle.y
+    val width = rectangle.width
+    val height = rectangle.height
 
     /**
      * The list of Textures used for drawing this game object.
