@@ -19,20 +19,20 @@ public class GlowEffectGameScreen extends BaseScreen {
     public GlowEffectGameScreen() {
         spriteBatch = new SpriteBatch();
 
-        RingSprite ringSpriteRed = new RingSprite(viewport, spriteBatch);
+        RingSprite ringSpriteRed = new RingSprite(getViewPort(), spriteBatch);
         ringSpriteRed.randomSpeed();
 
-        RingSprite ringSpriteGreen = new RingSprite(viewport, spriteBatch);
+        RingSprite ringSpriteGreen = new RingSprite(getViewPort(), spriteBatch);
         ringSpriteGreen.setColor(Color.GREEN);
         ringSpriteGreen.setDirection(RingSprite.Direction.TOP_RIGHT);
         ringSpriteGreen.randomSpeed();
 
-        RingSprite ringSpriteBlue = new RingSprite(viewport, spriteBatch);
+        RingSprite ringSpriteBlue = new RingSprite(getViewPort(), spriteBatch);
         ringSpriteBlue.setColor(Color.BLUE);
         ringSpriteBlue.setDirection(RingSprite.Direction.BOTTOM_RIGHT);
         ringSpriteBlue.randomSpeed();
 
-        RingSprite ringSpriteYellow = new RingSprite(viewport, spriteBatch);
+        RingSprite ringSpriteYellow = new RingSprite(getViewPort(), spriteBatch);
         ringSpriteYellow.setColor(Color.YELLOW);
         ringSpriteYellow.setDirection(RingSprite.Direction.BOTTOM_LEFT);
         ringSpriteYellow.randomSpeed();
