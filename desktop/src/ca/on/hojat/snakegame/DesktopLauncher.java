@@ -1,7 +1,6 @@
 package ca.on.hojat.snakegame;
 
-import ca.on.hojat.snakegame.gloweffect.GlowEffect;
-import ca.on.hojat.snakegame.raindropgame.RainDropGame;
+import ca.on.hojat.snakegame.gloweffect.GlowRingsGame;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
@@ -13,6 +12,6 @@ public class DesktopLauncher {
         config.setWindowedMode(800, 480);
         config.useVsync(true);
         config.setForegroundFPS(60);
-        new Lwjgl3Application(new GlowEffect(), config);
+        new Lwjgl3Application(new GlowRingsGame(), config);
     }
 }
