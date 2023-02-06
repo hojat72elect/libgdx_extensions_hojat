@@ -1,5 +1,6 @@
 package ca.on.hojat.snakegame.raindropgame
 
+import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
@@ -17,15 +18,21 @@ import com.badlogic.gdx.utils.TimeUtils
 class RainDropGame : ApplicationAdapter() {
 
     private val rainDrops = Array<Rectangle>()
+
     // last time we spawned a rain drop
     private var lastDropTime = 0L
     private lateinit var dropImage: Texture
-    private lateinit var bucketImage: Texture
+
     private lateinit var dropSound: Sound
     private lateinit var rainMusic: Music
     private lateinit var camera: OrthographicCamera
     private lateinit var batch: SpriteBatch
-    private lateinit var bucket: Rectangle
+
+
+    private val bucketGameObject = BaseGameObject(
+        rectangle = Rectangle(),
+        textureAddress = *arrayOf("bucket.png")
+    )
 
     private fun spawnRaindrop() {
         val rainDrop = Rectangle().apply {
@@ -38,7 +45,11 @@ class RainDropGame : ApplicationAdapter() {
         lastDropTime = TimeUtils.nanoTime()
     }
 
+    /**
+     * warmup code
+     */
     override fun create() {
+
         spawnRaindrop()
         // create the camera
         camera = OrthographicCamera()
@@ -47,10 +58,10 @@ class RainDropGame : ApplicationAdapter() {
         batch = SpriteBatch()
         // Load all the textures
         dropImage = Texture(Gdx.files.internal("droplet.png"))
-        bucketImage = Texture(Gdx.files.internal("bucket.png"))
-        // create the bucket
-        bucket = Rectangle()
-        with(bucket) {
+        bucketGameObject.loadTexture()
+
+        // position the bucket in our world
+        with(bucketGameObject.rectangle) {
             x = 800f / 2 - 64 / 2
             y = 20f
             width = 64f
@@ -70,20 +81,20 @@ class RainDropGame : ApplicationAdapter() {
         // render the bucket
         batch.projectionMatrix = camera.combined
         batch.begin()
-        batch.draw(bucketImage, bucket.x, bucket.y)
+        batch.draw(bucketGameObject.textureGraphic.first(), bucketGameObject.rectangle.x, bucketGameObject.rectangle.y)
         for (rainDrop in rainDrops) {
             batch.draw(dropImage, rainDrop.x, rainDrop.y)
         }
         batch.end()
         if (TimeUtils.nanoTime() - lastDropTime > 1_000_000_000) spawnRaindrop()
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) bucket.x -= 200 * Gdx.graphics.deltaTime
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) bucket.x += 200 * Gdx.graphics.deltaTime
-        if (bucket.x < 0) bucket.x = 0f
-        if (bucket.x > 800 - 64) bucket.x = 800f - 64
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) bucketGameObject.rectangle.x -= 200 * Gdx.graphics.deltaTime
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) bucketGameObject.rectangle.x += 200 * Gdx.graphics.deltaTime
+        if (bucketGameObject.rectangle.x < 0) bucketGameObject.rectangle.x = 0f
+        if (bucketGameObject.rectangle.x > 800 - 64) bucketGameObject.rectangle.x = 800f - 64
         rainDrops.iterator().forEach { rainDrop ->
             rainDrop.y -= 200 * Gdx.graphics.deltaTime
             if (rainDrop.y + 64 < 0) rainDrops.removeValue(rainDrop, true)
-            if (rainDrop.overlaps(bucket)) {
+            if (rainDrop.overlaps(bucketGameObject.rectangle)) {
                 dropSound.play()
                 rainDrops.removeValue(rainDrop, true)
             }
@@ -92,7 +103,7 @@ class RainDropGame : ApplicationAdapter() {
 
     override fun dispose() {
         dropImage.dispose()
-        bucketImage.dispose()
+        bucketGameObject.dispose()
         dropSound.dispose()
         rainMusic.dispose()
         batch.dispose()

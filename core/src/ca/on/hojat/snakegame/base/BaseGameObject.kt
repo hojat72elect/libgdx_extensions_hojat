@@ -2,13 +2,16 @@ package ca.on.hojat.snakegame.base
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.math.Rectangle
+import com.badlogic.gdx.utils.Disposable
 
 open class BaseGameObject(
     var xPosition: Float = 0f,
     var yPosition: Float = 0f,
     var movementDirection: MovementDirection? = null,
+    val rectangle: Rectangle,
     vararg val textureAddress: String
-) {
+) : Disposable {
 
     /**
      * The list of Textures used for drawing this game object.
@@ -25,5 +28,9 @@ open class BaseGameObject(
                 Texture(Gdx.files.internal(it))
             )
         }
+    }
+
+    override fun dispose() {
+        textureGraphic.forEach { texture -> texture.dispose() }
     }
 }

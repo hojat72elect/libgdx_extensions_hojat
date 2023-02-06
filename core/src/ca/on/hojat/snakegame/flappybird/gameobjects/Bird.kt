@@ -3,8 +3,9 @@ package ca.on.hojat.snakegame.flappybird.gameobjects
 import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Circle
+import com.badlogic.gdx.math.Rectangle
 
-class Bird : BaseGameObject() {
+class Bird : BaseGameObject(rectangle = Rectangle()) {
 
     private val collisionCircle = Circle(xPosition, yPosition, COLLISION_RADIUS)
     private var ySpeed = 0f

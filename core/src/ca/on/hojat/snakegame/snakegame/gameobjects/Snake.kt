@@ -5,6 +5,7 @@ import ca.on.hojat.snakegame.base.BaseGameObject
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.math.Rectangle
 
 /**
  *  head: the head of the snake is a [BaseGameObject] of its own because
@@ -13,6 +14,7 @@ import com.badlogic.gdx.graphics.Texture
  *
  */
 class Snake : BaseGameObject(
+    rectangle = Rectangle(),
     movementDirection = MovementDirection.RIGHT,
     textureAddress = *arrayOf("snakehead.png", "snakebody.png")
 ) {

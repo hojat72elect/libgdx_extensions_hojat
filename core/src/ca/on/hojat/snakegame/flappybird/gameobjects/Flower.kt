@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.Rectangle
 
-class Flower : BaseGameObject() {
+class Flower : BaseGameObject(rectangle = Rectangle()) {
 
     private val collisionRectangle =
         Rectangle(xPosition, yPosition, COLLISION_RECTANGLE_WIDTH, COLLISION_RECTANGLE_HEIGHT)
