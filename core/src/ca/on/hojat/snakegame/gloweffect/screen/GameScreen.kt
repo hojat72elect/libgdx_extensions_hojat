@@ -1,7 +1,7 @@
 package ca.on.hojat.snakegame.gloweffect.screen
 
 import ca.on.hojat.snakegame.gloweffect.screen.base.BaseScreen
-import ca.on.hojat.snakegame.gloweffect.sprite.RingSprite
+import ca.on.hojat.snakegame.gloweffect.sprite.RingSpriteKotlin
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
@@ -9,26 +9,26 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 
 class GameScreen : BaseScreen() {
 
-    private val ringSprites = mutableListOf<RingSprite>()
+    private val ringSprites = mutableListOf<RingSpriteKotlin>()
     private val spriteBatch = SpriteBatch()
 
     init {
-        val ringSpriteRed = RingSprite(viewPort, spriteBatch).apply {
+        val ringSpriteRed = RingSpriteKotlin(viewPort, spriteBatch).apply {
             randomSpeed()
         }
-        val ringSpriteGreen = RingSprite(viewPort, spriteBatch).apply {
-            setColor(Color.GREEN)
-            setDirection(RingSprite.Direction.TOP_RIGHT)
+        val ringSpriteGreen = RingSpriteKotlin(viewPort, spriteBatch).apply {
+            color = Color.GREEN
+            direction = RingSpriteKotlin.Direction.TOP_RIGHT
             randomSpeed()
         }
-        val ringSpriteBlue = RingSprite(viewPort, spriteBatch).apply {
-            setColor(Color.BLUE)
-            setDirection(RingSprite.Direction.BOTTOM_RIGHT)
+        val ringSpriteBlue = RingSpriteKotlin(viewPort, spriteBatch).apply {
+            color = Color.BLUE
+            direction = RingSpriteKotlin.Direction.BOTTOM_RIGHT
             randomSpeed()
         }
-        val ringSpriteYellow = RingSprite(viewPort, spriteBatch).apply {
-            setColor(Color.YELLOW)
-            setDirection(RingSprite.Direction.BOTTOM_LEFT)
+        val ringSpriteYellow = RingSpriteKotlin(viewPort, spriteBatch).apply {
+            color = Color.YELLOW
+            direction = RingSpriteKotlin.Direction.BOTTOM_LEFT
             randomSpeed()
         }
 

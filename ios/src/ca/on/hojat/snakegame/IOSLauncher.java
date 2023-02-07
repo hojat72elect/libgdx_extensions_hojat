@@ -1,17 +1,17 @@
 package ca.on.hojat.snakegame;
 
-import ca.on.hojat.snakegame.snakegame.SnakeGame;
-import org.robovm.apple.foundation.NSAutoreleasePool;
-import org.robovm.apple.uikit.UIApplication;
 
+import ca.on.hojat.snakegame.gloweffect.GlowRingsGame;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplication;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplicationConfiguration;
+import org.robovm.apple.foundation.NSAutoreleasePool;
+import org.robovm.apple.uikit.UIApplication;
 
 public class IOSLauncher extends IOSApplication.Delegate {
     @Override
     protected IOSApplication createApplication() {
         IOSApplicationConfiguration config = new IOSApplicationConfiguration();
-        return new IOSApplication(new SnakeGame(), config);
+        return new IOSApplication(new GlowRingsGame(), config);
     }
 
     public static void main(String[] argv) {
