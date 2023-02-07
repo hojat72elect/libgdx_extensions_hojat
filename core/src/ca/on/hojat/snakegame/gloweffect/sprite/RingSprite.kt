@@ -1,7 +1,7 @@
 package ca.on.hojat.snakegame.gloweffect.sprite
 
 import ca.on.hojat.snakegame.base.MovementDirection
-import ca.on.hojat.snakegame.gloweffect.sprite.base.BaseSprite
+import ca.on.hojat.snakegame.base.BaseSprite
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.viewport.Viewport
 import java.util.*
 
-class RingSpriteKotlin(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprite(viewport, spriteBatch) {
+class RingSprite(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprite(viewport, spriteBatch) {
 
     private var ringTexture = Texture(TEXTURE_RING)
     private var glowTexture = Texture(TEXTURE_GLOW)
