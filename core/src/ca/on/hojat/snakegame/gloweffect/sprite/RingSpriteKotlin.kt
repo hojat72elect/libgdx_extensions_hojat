@@ -1,5 +1,6 @@
 package ca.on.hojat.snakegame.gloweffect.sprite
 
+import ca.on.hojat.snakegame.base.MovementDirection
 import ca.on.hojat.snakegame.gloweffect.sprite.base.BaseSprite
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
@@ -24,7 +25,7 @@ class RingSpriteKotlin(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprit
     private var elapsedTime = 0.0f
     private var glowProgress = 0.0f
     private var isGlowing = false
-    var direction = Direction.TOP_LEFT
+    var direction: MovementDirection = MovementDirection.TopLeft
     var color: Color = Color.RED
     private var speedX = 150f
     private var speedY = 150f
@@ -62,49 +63,50 @@ class RingSpriteKotlin(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprit
 
     private fun move(delta: Float) {
         when (direction) {
-            Direction.TOP_LEFT -> velocity.add(-speedX, speedY)
-            Direction.TOP_RIGHT -> velocity.add(speedX, speedY)
-            Direction.BOTTOM_LEFT -> velocity.add(-speedX, -speedY)
-            Direction.BOTTOM_RIGHT -> velocity.add(speedX, -speedY)
+            MovementDirection.TopLeft -> velocity.add(-speedX, speedY)
+            MovementDirection.TopRight -> velocity.add(speedX, speedY)
+            MovementDirection.BottomLeft -> velocity.add(-speedX, -speedY)
+            MovementDirection.BottomRight -> velocity.add(speedX, -speedY)
+            else -> {}
         }
 
         if (position.x < -RING_MARGIN) {
             showGlowEffect()
-            if (direction == Direction.TOP_LEFT) {
-                direction = Direction.TOP_RIGHT
+            if (direction == MovementDirection.TopLeft) {
+                direction = MovementDirection.TopRight
             }
-            if (direction == Direction.BOTTOM_LEFT) {
-                direction = Direction.BOTTOM_RIGHT
+            if (direction == MovementDirection.BottomLeft) {
+                direction = MovementDirection.BottomRight
             }
         }
 
         if (position.x >= viewport.worldWidth - ringTexture.width + RING_MARGIN) {
             showGlowEffect()
-            if (direction == Direction.BOTTOM_RIGHT) {
-                direction = Direction.BOTTOM_LEFT
+            if (direction == MovementDirection.BottomRight) {
+                direction = MovementDirection.BottomLeft
             }
-            if (direction == Direction.TOP_RIGHT) {
-                direction = Direction.TOP_LEFT
+            if (direction == MovementDirection.TopRight) {
+                direction = MovementDirection.TopLeft
             }
         }
 
         if (position.y >= viewport.worldHeight - ringTexture.height + RING_MARGIN) {
             showGlowEffect()
-            if (direction == Direction.TOP_RIGHT) {
-                direction = Direction.BOTTOM_RIGHT
+            if (direction == MovementDirection.TopRight) {
+                direction = MovementDirection.BottomRight
             }
-            if (direction == Direction.TOP_LEFT) {
-                direction = Direction.BOTTOM_LEFT
+            if (direction == MovementDirection.TopLeft) {
+                direction = MovementDirection.BottomLeft
             }
         }
 
         if (position.y <= -RING_MARGIN) {
             showGlowEffect()
-            if (direction == Direction.BOTTOM_LEFT) {
-                direction = Direction.TOP_LEFT
+            if (direction == MovementDirection.BottomLeft) {
+                direction = MovementDirection.TopLeft
             }
-            if (direction == Direction.BOTTOM_RIGHT) {
-                direction = Direction.TOP_RIGHT
+            if (direction == MovementDirection.BottomRight) {
+                direction = MovementDirection.TopRight
             }
         }
 
@@ -139,10 +141,6 @@ class RingSpriteKotlin(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprit
         const val RING_MARGIN = 24
         const val MIN_SPEED = 150
         const val MAX_SPEED = 250
-    }
-
-    enum class Direction {
-        TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT
     }
 
     private fun interpolateAlpha(delta: Float) {

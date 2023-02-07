@@ -1,5 +1,6 @@
 package ca.on.hojat.snakegame.gloweffect.screen
 
+import ca.on.hojat.snakegame.base.MovementDirection
 import ca.on.hojat.snakegame.gloweffect.screen.base.BaseScreen
 import ca.on.hojat.snakegame.gloweffect.sprite.RingSpriteKotlin
 import com.badlogic.gdx.Gdx
@@ -18,17 +19,17 @@ class GameScreen : BaseScreen() {
         }
         val ringSpriteGreen = RingSpriteKotlin(viewPort, spriteBatch).apply {
             color = Color.GREEN
-            direction = RingSpriteKotlin.Direction.TOP_RIGHT
+            direction = MovementDirection.TopRight
             randomSpeed()
         }
         val ringSpriteBlue = RingSpriteKotlin(viewPort, spriteBatch).apply {
             color = Color.BLUE
-            direction = RingSpriteKotlin.Direction.BOTTOM_RIGHT
+            direction = MovementDirection.BottomRight
             randomSpeed()
         }
         val ringSpriteYellow = RingSpriteKotlin(viewPort, spriteBatch).apply {
             color = Color.YELLOW
-            direction = RingSpriteKotlin.Direction.BOTTOM_LEFT
+            direction = MovementDirection.BottomLeft
             randomSpeed()
         }
 

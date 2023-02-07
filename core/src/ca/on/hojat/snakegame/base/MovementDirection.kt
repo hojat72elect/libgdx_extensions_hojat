@@ -5,8 +5,12 @@ package ca.on.hojat.snakegame.base
  * can move in our game world.
  */
 sealed class MovementDirection {
-    object RIGHT : MovementDirection()
-    object LEFT : MovementDirection()
-    object UP : MovementDirection()
-    object DOWN : MovementDirection()
+    object Right : MovementDirection()
+    object Left : MovementDirection()
+    object Top : MovementDirection()
+    object Bottom : MovementDirection()
+    object TopLeft : MovementDirection()
+    object TopRight : MovementDirection()
+    object BottomLeft : MovementDirection()
+    object BottomRight : MovementDirection()
 }

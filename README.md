@@ -4,3 +4,4 @@ capabilities into separate packages. The current game I'm working on is an adapt
 The games in this repo that are fully implemented/complete:
 
 * Rain Drop
+* Glow Effect
