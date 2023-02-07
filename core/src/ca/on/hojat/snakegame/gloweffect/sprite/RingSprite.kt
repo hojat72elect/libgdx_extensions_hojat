@@ -11,7 +11,10 @@ import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.viewport.Viewport
 import java.util.*
 
-class RingSprite(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprite(viewport, spriteBatch) {
+class RingSprite(
+    viewport: Viewport,
+    spriteBatch: SpriteBatch
+) : BaseSprite(viewport, spriteBatch) {
 
     private var ringTexture = Texture(TEXTURE_RING)
     private var glowTexture = Texture(TEXTURE_GLOW)
@@ -35,7 +38,6 @@ class RingSprite(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprite(view
 
         interpolateAlpha(delta)
 
-
         // Draw extended glow texture with color filter
         spriteBatch.begin()
         spriteBatch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE)
@@ -56,9 +58,7 @@ class RingSprite(viewport: Viewport, spriteBatch: SpriteBatch) : BaseSprite(view
         spriteBatch.draw(ringTexture, position.x, position.y)
         spriteBatch.end()
 
-
         move(delta)
-
     }
 
     private fun move(delta: Float) {
