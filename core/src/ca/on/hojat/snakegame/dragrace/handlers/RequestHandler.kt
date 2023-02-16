@@ -1,22 +1,13 @@
-package ca.on.hojat.snakegame.dragrace.handlers;
+package ca.on.hojat.snakegame.dragrace.handlers
 
-public interface RequestHandler {
-    void showRater();
-
-    void showInterstitial();
-
-    void showFacebook();
-
-    void shareOnFacebook(final String mensaje);
-
-    void shareOnTwitter(final String mensaje);
-
-    void removeAds();
-
-    void showAdBanner();
-
-    void hideAdBanner();
-
-    void buy50milCoins();
-
+interface RequestHandler {
+    fun showRater()
+    fun showInterstitial()
+    fun showFacebook()
+    fun shareOnFacebook(mensaje: String?)
+    fun shareOnTwitter(mensaje: String?)
+    fun removeAds()
+    fun showAdBanner()
+    fun hideAdBanner()
+    fun buy50milCoins()
 }
