@@ -16,8 +16,6 @@ import com.badlogic.gdx.utils.Array;
 import ca.on.hojat.snakegame.dragrace.MainStreet;
 import ca.on.hojat.snakegame.dragrace.Settings;
 
-import java.util.Iterator;
-
 public class PersonajesSubMenu {
 
     public static final int SKIN_CARRO_DIABLO = 0;
