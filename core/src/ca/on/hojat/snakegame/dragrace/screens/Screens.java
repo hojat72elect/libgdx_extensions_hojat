@@ -1,6 +1,10 @@
 package ca.on.hojat.snakegame.dragrace.screens;
 
 import ca.on.hojat.snakegame.dragrace.Assets;
+import ca.on.hojat.snakegame.dragrace.MainStreet;
+import ca.on.hojat.snakegame.dragrace.Settings;
+import ca.on.hojat.snakegame.dragrace.game.GameScreen;
+import ca.on.hojat.snakegame.dragrace.shop.ShopScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
@@ -19,12 +23,6 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import ca.on.hojat.snakegame.dragrace.MainStreet;
-import ca.on.hojat.snakegame.dragrace.Settings;
-import ca.on.hojat.snakegame.dragrace.game.GameScreen;
-import ca.on.hojat.snakegame.dragrace.shop.ShopScreen;
-
-import java.util.Random;
 
 public abstract class Screens extends InputAdapter implements Screen,
         GestureListener {
@@ -40,12 +38,10 @@ public abstract class Screens extends InputAdapter implements Screen,
     public SpriteBatch batcher;
     public Stage stage;
 
-    Random oRan;
-
     public Screens(final MainStreet game) {
         this.stage = game.stage;
         this.stage.clear();
-        this.batcher = game.batcher;
+        this.batcher = game.batch;
         this.game = game;
 
         oCam = new OrthographicCamera(SCREEN_WIDTH, SCREEN_HEIGHT);

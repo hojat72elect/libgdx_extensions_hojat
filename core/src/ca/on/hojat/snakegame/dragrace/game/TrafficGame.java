@@ -74,7 +74,7 @@ public class TrafficGame extends Table {
             canSuperSpeed = true;
         }
 
-        updateCar(delta);
+
         updateEnemyCar(delta);
         updateMonedas(delta);
         score += delta * velocidadActual;
@@ -85,9 +85,6 @@ public class TrafficGame extends Table {
 
     }
 
-    private void updateCar(float delta) {
-
-    }
 
     private void updateEnemyCar(float delta) {
         // Primero creo un carro si es necesario
@@ -120,25 +117,13 @@ public class TrafficGame extends Table {
                 iter.remove();
 
                 if (enemyCar.getX() > oCar.getX()) {
-                    if (enemyCar.getY() > oCar.getY()) {
-                        enemyCar.crash(true, true);
-                        if (!isSuperSpeed)
-                            oCar.crash(false, true);
-                    } else {
-                        enemyCar.crash(true, false);
-                        if (!isSuperSpeed)
-                            oCar.crash(false, true);
-                    }
+                    enemyCar.crash(true, enemyCar.getY() > oCar.getY());
+                    if (!isSuperSpeed)
+                        oCar.crash(false, true);
                 } else {
-                    if (enemyCar.getY() > oCar.getY()) {
-                        enemyCar.crash(false, true);
-                        if (!isSuperSpeed)
-                            oCar.crash(true, true);
-                    } else {
-                        enemyCar.crash(false, false);
-                        if (!isSuperSpeed)
-                            oCar.crash(true, true);
-                    }
+                    enemyCar.crash(false, enemyCar.getY() > oCar.getY());
+                    if (!isSuperSpeed)
+                        oCar.crash(true, true);
                 }
                 Assets.soundCrash.stop();
                 Assets.playSound(Assets.soundCrash);
@@ -178,9 +163,7 @@ public class TrafficGame extends Table {
             }
 
             // Veo si esta tocando a un enemigo
-            Iterator<EnemyCar> iterEnemy = arrEnemyCars.iterator();
-            while (iterEnemy.hasNext()) {
-                EnemyCar objEnemy = iterEnemy.next();
+            for (EnemyCar objEnemy : arrEnemyCars) {
                 if (obj.getBounds().overlaps(objEnemy.getBounds())) {
                     iter.remove();
                     removeActor(obj);
