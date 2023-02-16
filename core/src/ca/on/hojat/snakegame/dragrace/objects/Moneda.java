@@ -13,11 +13,10 @@ import ca.on.hojat.snakegame.dragrace.Settings;
 public class Moneda extends Actor {
 
 	final int STATE_NORMAL = 0;
-	final int STATE_TAKEN = 1;
 	public int state;
 
-	private Rectangle bounds = new Rectangle();
-	private MoveToAction moveAction;
+	private final Rectangle bounds = new Rectangle();
+	private final MoveToAction moveAction;
 	boolean isSuperSpeed;
 
 	public Moneda(float x, float y) {
@@ -72,12 +71,6 @@ public class Moneda extends Actor {
 			moveAction.reset();
 			moveAction.setDuration(1f);
 			addAction(moveAction);
-		}
-	}
-
-	public void hit() {
-		if (state == STATE_NORMAL) {
-			state = STATE_TAKEN;
 		}
 	}
 

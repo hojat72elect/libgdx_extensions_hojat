@@ -9,23 +9,8 @@ public class SpeedBar extends Actor {
 	public float maxlife;
 	public float actualLife;
 
-	public SpeedBar(float maxLife, float actualLife, float x, float y,
-			float width, float height) {
-		this.setBounds(x, y, width, height);
-		this.maxlife = maxLife;
-		this.actualLife = actualLife;
-	}
-
 	public SpeedBar(float maxLife, float x, float y, float width, float height) {
 		this.setBounds(x, y, width, height);
-		this.maxlife = maxLife;
-		this.actualLife = maxLife;
-	}
-
-	/**
-	 * Si utilizo una tabla, el ancho y la altura se sobreescriben
-	 */
-	public SpeedBar(float maxLife) {
 		this.maxlife = maxLife;
 		this.actualLife = maxLife;
 	}

@@ -29,12 +29,6 @@ public class DesktopLauncher {
         }
 
         @Override
-        public void showMoreGames() {
-            // TODO Auto-generated method stub
-
-        }
-
-        @Override
         public void showInterstitial() {
             // TODO Auto-generated method stub
 
@@ -86,19 +80,7 @@ public class DesktopLauncher {
     static GoogleGameServicesHandler gameHandler = new GoogleGameServicesHandler() {
 
         @Override
-        public void unlockAchievement(String achievementId) {
-            // TODO Auto-generated method stub
-
-        }
-
-        @Override
         public void submitScore(long score) {
-            // TODO Auto-generated method stub
-
-        }
-
-        @Override
-        public void signOut() {
             // TODO Auto-generated method stub
 
         }
@@ -121,10 +103,5 @@ public class DesktopLauncher {
 
         }
 
-        @Override
-        public void getAchievements() {
-            // TODO Auto-generated method stub
-
-        }
     };
 }

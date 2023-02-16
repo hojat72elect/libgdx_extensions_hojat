@@ -1,24 +1,22 @@
 package ca.on.hojat.snakegame.dragrace.handlers;
 
 public interface RequestHandler {
-	public void showRater();
+	 void showRater();
 
-	public void showInterstitial();
+	 void showInterstitial();
 
-	public void showFacebook();
+	 void showFacebook();
 
-	public void showMoreGames();
+	void shareOnFacebook(final String mensaje);
 
-	public void shareOnFacebook(final String mensaje);
+	 void shareOnTwitter(final String mensaje);
 
-	public void shareOnTwitter(final String mensaje);
+	 void removeAds();
 
-	public void removeAds();
+	 void showAdBanner();
 
-	public void showAdBanner();
+	 void hideAdBanner();
 
-	public void hideAdBanner();
-
-	public void buy50milCoins();
+	 void buy50milCoins();
 
 }
