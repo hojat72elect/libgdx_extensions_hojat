@@ -29,7 +29,6 @@ public class PlayerCar extends Actor {
     private final Rectangle bounds = new Rectangle();
     private int lane;
 
-    float moveTime = .75f;
     TextureRegion keyframe;
 
     public float stateTime;
@@ -210,6 +209,7 @@ public class PlayerCar extends Actor {
     private void moveToLane(int lane) {
         this.lane = lane;
 
+        float moveTime = .75f;
         switch (lane) {
             case 0:
                 addAction(Actions.sequence(
