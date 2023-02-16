@@ -60,7 +60,7 @@ public class SwipeHorizontalTutorial extends Group {
                         })//
                 ));
 
-        // stage.addActor(swipeArrows);
+
         addActor(swipeHand);
         addActor(swipeArrows);
     }
