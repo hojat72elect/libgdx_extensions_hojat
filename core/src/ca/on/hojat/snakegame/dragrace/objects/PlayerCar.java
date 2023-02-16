@@ -37,94 +37,94 @@ public class PlayerCar extends Actor {
     public PlayerCar(TrafficGame trafficGame) {
         this.trafficGame = trafficGame;
 
-        float width, height;
+        float carWidth, carHeight;
 
         switch (Settings.skinSeleccionada) {
             case PersonajesSubMenu.SKIN_CARRO_DIABLO:
                 keyframe = Assets.carroDiablo;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_BANSHEE:
                 keyframe = Assets.carroBanshee;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_TORNADO:
                 keyframe = Assets.carroTornado;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_TURISMO:
                 keyframe = Assets.carroTurismo;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_AUDI_S5:
                 keyframe = Assets.audiS5;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_BMW_X6:
                 keyframe = Assets.bmwX6;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_BULLET:
                 keyframe = Assets.carroBullet;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_CHEVRLOTE_CROSSFIRE:
                 keyframe = Assets.chevroletCrossfire;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_CITROEN_C4:
                 keyframe = Assets.citroenC4;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_DODGE_CHARGER:
                 keyframe = Assets.dodgeCharger;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_FIAT_500_LOUNGE:
                 keyframe = Assets.fiat500Lounge;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_HONDA_CRV:
                 keyframe = Assets.hondaCRV;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_MAZDA_6:
                 keyframe = Assets.mazda6;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_MAZDA_RX8:
                 keyframe = Assets.mazdaRX8;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_SEAT_IBIZA:
                 keyframe = Assets.seatIbiza;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
             case PersonajesSubMenu.SKIN_CARRO_VOLKSWAGEN_SCIROCCO:
             default:
                 keyframe = Assets.volkswagenScirocco;
-                width = keyframe.getRegionWidth();
-                height = keyframe.getRegionHeight();
+                carWidth = keyframe.getRegionWidth();
+                carHeight = keyframe.getRegionHeight();
                 break;
         }
 
-        setWidth(width - 10);
-        setHeight(height - 10);
+        setWidth(carWidth - 10);
+        setHeight(carHeight - 10);
 
         lane = 1;
         setPosition(trafficGame.lane1 - getWidth() / 2, 200);
