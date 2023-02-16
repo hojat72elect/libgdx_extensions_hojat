@@ -1,12 +1,12 @@
 package ca.on.hojat.snakegame.dragrace.shop;
 
 import ca.on.hojat.snakegame.dragrace.Assets;
+import ca.on.hojat.snakegame.dragrace.MainStreet;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import ca.on.hojat.snakegame.dragrace.MainStreet;
 import ca.on.hojat.snakegame.dragrace.Settings;
 import ca.on.hojat.snakegame.dragrace.screens.MainMenuScreen;
 import ca.on.hojat.snakegame.dragrace.screens.Screens;

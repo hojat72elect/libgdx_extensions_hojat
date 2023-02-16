@@ -1,6 +1,7 @@
 package ca.on.hojat.snakegame.dragrace.screens;
 
 import ca.on.hojat.snakegame.dragrace.Assets;
+import ca.on.hojat.snakegame.dragrace.MainStreet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -9,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import ca.on.hojat.snakegame.dragrace.MainStreet;
 import ca.on.hojat.snakegame.dragrace.Settings;
 import ca.on.hojat.snakegame.dragrace.game.GameScreen;
 import ca.on.hojat.snakegame.dragrace.shop.ShopScreen;

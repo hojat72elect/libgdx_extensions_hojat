@@ -1,6 +1,7 @@
 package ca.on.hojat.snakegame.dragrace.shop;
 
 import ca.on.hojat.snakegame.dragrace.Assets;
+import ca.on.hojat.snakegame.dragrace.MainStreet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -13,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
-import ca.on.hojat.snakegame.dragrace.MainStreet;
 import ca.on.hojat.snakegame.dragrace.Settings;
 
 public class PersonajesSubMenu {
