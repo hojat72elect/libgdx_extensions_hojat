@@ -1,13 +1,10 @@
 package ca.on.hojat.snakegame.dragrace.game;
 
 import ca.on.hojat.snakegame.dragrace.Assets;
+import ca.on.hojat.snakegame.dragrace.objects.*;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
-import ca.on.hojat.snakegame.dragrace.objects.EnemyCar;
-import ca.on.hojat.snakegame.dragrace.objects.InfiniteScrollBg;
-import ca.on.hojat.snakegame.dragrace.objects.Moneda;
-import ca.on.hojat.snakegame.dragrace.objects.PlayerCar;
 import ca.on.hojat.snakegame.dragrace.screens.Screens;
 
 import java.util.Iterator;
@@ -55,8 +52,8 @@ public class TrafficGame extends Table {
 
         oCar = new PlayerCar(this);
         addActor(oCar);
-        arrEnemyCars = new Array<EnemyCar>();
-        arrCoins = new Array<Moneda>();
+        arrEnemyCars = new Array<>();
+        arrCoins = new Array<>();
 
         state = STATE_RUNNING;
     }
