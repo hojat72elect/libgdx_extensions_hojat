@@ -24,33 +24,33 @@ public class SwipeVerticalTutorial {
         swipeHand.setOrigin(swipeHand.getWidth() / 2f,
                 swipeHand.getHeight() / 2f);
         swipeHand.setScale(1.2f);
-        swipeHand.addAction(//
+        swipeHand.addAction(
                 Actions.sequence(
-                        //
+
                         Actions.scaleTo(1, 1, .25f),
                         Actions.run(new Runnable() {
                             @Override
                             public void run() {
                                 swipeHand.setDrawable(Assets.swipeHandDown);
                             }
-                        }),//
-                        Actions.moveTo(swipeHand.getX(), 500, .65f), //
+                        }),
+                        Actions.moveTo(swipeHand.getX(), 500, .65f),
                         Actions.run(new Runnable() {
                             @Override
                             public void run() {
                                 swipeHand.setDrawable(Assets.swipeHand);
 
                             }
-                        }),//
-                        Actions.scaleTo(1.1f, 1.1f, .125f),//
+                        }),
+                        Actions.scaleTo(1.1f, 1.1f, .125f),
                         Actions.run(new Runnable() {
                             @Override
                             public void run() {
-                                // swipeArrows.remove();
+
                                 swipeHand.remove();
 
                             }
-                        })//
+                        })
                 ));
 
         labelSwipeToMove.addAction(Actions.sequence(Actions.fadeIn(1f),
@@ -64,8 +64,8 @@ public class SwipeVerticalTutorial {
                     }
                 })));
 
-        // stage.addActor(swipeArrows);
+
         stage.addActor(labelSwipeToMove);
-        // addActor(swipeArrows);
+
     }
 }
