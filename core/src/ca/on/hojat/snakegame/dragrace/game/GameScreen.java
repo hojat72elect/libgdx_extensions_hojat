@@ -187,7 +187,7 @@ public class GameScreen extends Screens {
 
         if (!canSuperSpeed && trafficGame.canSuperSpeed) {
             canSuperSpeed = true;
-            new SwipeVerticalTutorial(stage);
+            new SwipeVerticalTutorial().swipeVerticalTutorial(stage);
         }
         // if (!canSuperSpeed)// Si es posible no lo actualizo para qque solo se reinicia cuando haga uso del poder
         speedBar.updateActualLife(trafficGame.numCoinsForSuperSpeed);
