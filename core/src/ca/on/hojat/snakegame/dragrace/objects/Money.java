@@ -15,13 +15,14 @@ public class Money extends Actor {
     private final Rectangle bounds = new Rectangle();
     private final MoveToAction moveAction;
     boolean isSuperSpeed;
+    ShapeRenderer renders = new ShapeRenderer();
 
-    public Money(float x, float y) {
+    public Money(float moneyX, float moneyY) {
 
-        // Le resto menos 5 para que los bounds no esten tan grandes : VEr metodo draw
+        // I subtract -5 so that the bounds are not so big: See draw method.
         setWidth(10);
         setHeight(32);
-        setPosition(x - getWidth() / 2f, y);
+        setPosition(moneyX - getWidth() / 2f, moneyY);
 
         addAction(Actions.forever(Actions.rotateBy(360, 1f)));
 
@@ -29,7 +30,6 @@ public class Money extends Actor {
         moveAction.setPosition(getX(), -getHeight());
         moveAction.setDuration(5);
         addAction(moveAction);
-
     }
 
     @Override
@@ -54,11 +54,9 @@ public class Money extends Actor {
         }
     }
 
-    ShapeRenderer renders = new ShapeRenderer();
 
     private void updateBounds() {
         bounds.set(getX(), getY(), getWidth(), getHeight());
-
     }
 
     public void setSpeed() {
