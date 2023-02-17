@@ -9,8 +9,14 @@ public class SpeedBar extends Actor {
     public float maxlife;
     public float actualLife;
 
-    public SpeedBar(float maxLife, float x, float y, float width, float height) {
-        this.setBounds(x, y, width, height);
+    public SpeedBar(
+            float maxLife,
+            float speedBarX,
+            float speedBarY,
+            float width,
+            float height
+    ) {
+        this.setBounds(speedBarX, speedBarY, width, height);
         this.maxlife = maxLife;
         this.actualLife = maxLife;
     }
