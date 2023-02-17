@@ -50,10 +50,10 @@ class Money(moneyX: Float, moneyY: Float) : Actor() {
             renders.projectionMatrix = batch?.projectionMatrix
             renders.begin(ShapeRenderer.ShapeType.Line)
             renders.rect(
-                bounds.x.toFloat(),
-                bounds.y.toFloat(),
-                bounds.width.toFloat(),
-                bounds.height.toFloat()
+                bounds.x,
+                bounds.y,
+                bounds.width,
+                bounds.height
             )
             renders.end()
             batch?.begin()
