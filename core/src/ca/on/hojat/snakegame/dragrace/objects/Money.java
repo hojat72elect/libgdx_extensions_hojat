@@ -12,9 +12,6 @@ import ca.on.hojat.snakegame.dragrace.Settings;
 
 public class Money extends Actor {
 
-    final int STATE_NORMAL = 0;
-    public int state;
-
     private final Rectangle bounds = new Rectangle();
     private final MoveToAction moveAction;
     boolean isSuperSpeed;
@@ -33,7 +30,6 @@ public class Money extends Actor {
         moveAction.setDuration(5);
         addAction(moveAction);
 
-        state = STATE_NORMAL;
     }
 
     @Override
