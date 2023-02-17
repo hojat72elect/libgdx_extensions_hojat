@@ -38,7 +38,7 @@ public class TrafficGame extends Table {
     private final InfiniteScrollBg backgroundRoad;
     public PlayerCar oCar;
     private final Array<EnemyCar> arrEnemyCars;
-    private final Array<Moneda> arrCoins;
+    private final Array<Money> arrCoins;
 
     public final float lane2 = 390;
     public final float lane1 = 240;
@@ -142,9 +142,9 @@ public class TrafficGame extends Table {
             spwanCoin();
         }
 
-        Iterator<Moneda> iter = arrCoins.iterator();
+        Iterator<Money> iter = arrCoins.iterator();
         while (iter.hasNext()) {
-            Moneda obj = iter.next();
+            Money obj = iter.next();
             if (obj.getBounds().y + obj.getHeight() <= 0) {
                 iter.remove();
                 removeActor(obj);
@@ -214,7 +214,7 @@ public class TrafficGame extends Table {
             x = lane1;
         if (lane == 2)
             x = lane2;
-        Moneda obj = new Moneda(x, getHeight());
+        Money obj = new Money(x, getHeight());
         arrCoins.add(obj);
         addActor(obj);
     }
