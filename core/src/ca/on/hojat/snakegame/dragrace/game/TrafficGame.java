@@ -14,15 +14,12 @@ public class TrafficGame extends Table {
     public static final int STATE_GAMEOVER = 1;
     public int state;
 
-    final float WIDTH = Screens.WORLD_WIDTH;
-    final float HEIGHT = Screens.WORLD_HEIGHT;
-
     public final static int NUM_COINS_FOR_SUPERSPEED = 10;
     public int numCoinsForSuperSpeed;
     boolean canSuperSpeed;
 
     final float TIME_TO_SPAWN_CAR = 2;
-    float timeToSpawnCar;
+    float timeToSpawnCar = 0;
 
     final float TIME_TO_SPAWN_COIN = 1f;
     float timeToSpawnCoin;
@@ -45,6 +42,8 @@ public class TrafficGame extends Table {
     public final float lane0 = 90;
 
     public TrafficGame() {
+        float WIDTH = Screens.WORLD_WIDTH;
+        float HEIGHT = Screens.WORLD_HEIGHT;
         setBounds(0, 0, WIDTH, HEIGHT);
         setClip(true);
         backgroundRoad = new InfiniteScrollBg(getWidth(), getHeight());
@@ -84,7 +83,7 @@ public class TrafficGame extends Table {
 
 
     private void updateEnemyCar(float delta) {
-        // Primero creo un carro si es necesario
+
 
         timeToSpawnCar += delta;
         if (timeToSpawnCar >= TIME_TO_SPAWN_CAR) {
@@ -106,7 +105,7 @@ public class TrafficGame extends Table {
                 enemyCar.setSpeed();
         }
 
-        // Despues checo las colisiones con el jugador
+
         iter = arrEnemyCars.iterator();
         while (iter.hasNext()) {
             EnemyCar enemyCar = iter.next();
@@ -139,7 +138,7 @@ public class TrafficGame extends Table {
 
         if (timeToSpawnCoin >= TIME_TO_SPAWN_COIN) {
             timeToSpawnCoin -= TIME_TO_SPAWN_COIN;
-            spwanCoin();
+            spawnCoin();
         }
 
         Iterator<Money> iter = arrCoins.iterator();
@@ -185,7 +184,7 @@ public class TrafficGame extends Table {
 
     }
 
-    public void stopSuperSpeed() {
+    private void stopSuperSpeed() {
         isSuperSpeed = false;
         velocidadActual = 5;
         backgroundRoad.stopSpeed();
@@ -205,7 +204,7 @@ public class TrafficGame extends Table {
         addActor(enemyCar);
     }
 
-    private void spwanCoin() {
+    private void spawnCoin() {
         int lane = MathUtils.random(0, 2);
         float x = 0;
         if (lane == 0)
