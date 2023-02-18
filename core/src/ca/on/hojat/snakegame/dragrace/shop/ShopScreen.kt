@@ -57,7 +57,9 @@ class ShopScreen(game: MainStreet?) : Screens(game) {
         stage.addActor(btNoAds)
         stage.addActor(btAtras)
         stage.addActor(scroll)
-        PersonajesSubMenu(game, contenedor)
+        if (game != null) {
+            PersonajesSubMenu(game, contenedor)
+        }
     }
 
     private fun initButtons() {
