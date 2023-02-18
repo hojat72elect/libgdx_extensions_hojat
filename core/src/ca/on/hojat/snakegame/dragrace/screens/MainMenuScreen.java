@@ -83,6 +83,8 @@ public class MainMenuScreen extends Screens {
             }
         });
 
+
+
         btMusica = new Button(Assets.styleButtonMusica);
         btMusica.setPosition(5, 5);
         btMusica.setChecked(!Settings.isMusicOn);
