@@ -16,22 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.badlogic.gdx.utils.Array
 
-class PersonajesSubMenu(var game: MainStreet, var contenedor: Table) {
-    val PRECIO_BANSHEE = 50
-    val PRECIO_BULLET = 175
-    val PRECIO_TURISMO = 100
-    val PRECIO_TORNADO = 75
-    val PRECIO_CARRO_AUDI_S5 = 125
-    val PRECIO_CARRO_BMW_X6 = 150
-    val PRECIO_CARRO_CHEVRLOTE_CROSSFIRE = 200
-    val PRECIO_CARRO_CITROEN_C4 = 225
-    val PRECIO_CARRO_DODGE_CHARGER = 250
-    val PRECIO_CARRO_FIAT_500_LOUNGE = 275
-    val PRECIO_CARRO_HONDA_CRV = 300
-    val PRECIO_CARRO_MAZDA_6 = 325
-    val PRECIO_CARRO_MAZDA_RX8 = 350
-    val PRECIO_CARRO_SEAT_IBIZA = 375
-    val PRECIO_CARRO_VOLKSWAGEN_SCIROCCO = 400
+class PersonajesSubMenu(var game: MainStreet,  contenedor: Table) {
+
     var didBuyBanshee = false
     var didBuyTornado = false
     var didBuyTurismo = false
@@ -63,7 +49,7 @@ class PersonajesSubMenu(var game: MainStreet, var contenedor: Table) {
     var btBuyMazdaRX8: TextButton? = null
     var btBuySeatIbiza: TextButton? = null
     var btBuyVolkswagenScirocco: TextButton? = null
-    var arrBotones: Array<TextButton>? = null
+    private var arrBotones: Array<TextButton>? = null
 
     init {
         loadPurchases()
@@ -769,7 +755,7 @@ class PersonajesSubMenu(var game: MainStreet, var contenedor: Table) {
         boton.isVisible = false
     }
 
-    protected fun addEfectoPress(actor: Actor) {
+    private fun addEfectoPress(actor: Actor) {
         actor.addListener(object : InputListener() {
             override fun touchDown(
                 event: InputEvent, x: Float, y: Float,
@@ -790,6 +776,21 @@ class PersonajesSubMenu(var game: MainStreet, var contenedor: Table) {
     }
 
     companion object {
+        const val PRECIO_BANSHEE = 50
+        const val PRECIO_BULLET = 175
+        const val PRECIO_TURISMO = 100
+        const val PRECIO_TORNADO = 75
+        const val PRECIO_CARRO_AUDI_S5 = 125
+        const val PRECIO_CARRO_BMW_X6 = 150
+        const val PRECIO_CARRO_CHEVRLOTE_CROSSFIRE = 200
+        const val PRECIO_CARRO_CITROEN_C4 = 225
+        const val PRECIO_CARRO_DODGE_CHARGER = 250
+        const val PRECIO_CARRO_FIAT_500_LOUNGE = 275
+        const val PRECIO_CARRO_HONDA_CRV = 300
+        const val PRECIO_CARRO_MAZDA_6 = 325
+        const val PRECIO_CARRO_MAZDA_RX8 = 350
+        const val PRECIO_CARRO_SEAT_IBIZA = 375
+        const val PRECIO_CARRO_VOLKSWAGEN_SCIROCCO = 400
         const val SKIN_CARRO_DIABLO = 0
         const val SKIN_CARRO_BANSHEE = 1
         const val SKIN_CARRO_TURISMO = 3
