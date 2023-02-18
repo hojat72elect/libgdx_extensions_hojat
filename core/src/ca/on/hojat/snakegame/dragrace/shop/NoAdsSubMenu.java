@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import ca.on.hojat.snakegame.dragrace.Settings;
+import org.jetbrains.annotations.NotNull;
 
 public class NoAdsSubMenu {
 
@@ -23,7 +24,7 @@ public class NoAdsSubMenu {
     Table contenedor;
     MainStreet game;
 
-    public NoAdsSubMenu(final MainStreet game, Table contenedor) {
+    public NoAdsSubMenu(@NotNull final MainStreet game, @NotNull Table contenedor) {
         this.game = game;
         this.contenedor = contenedor;
         contenedor.clear();
