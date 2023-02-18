@@ -53,7 +53,6 @@ public class ShopScreen extends Screens {
         initButtons();
 
         contenedor = new Table();
-        // contenedor.debug();
         scroll = new ScrollPane(contenedor, Assets.styleScrollPane);
         scroll.setSize(SCREEN_WIDTH - 95, (SCREEN_HEIGHT - 62));
         scroll.setPosition(95, 0);
@@ -63,7 +62,7 @@ public class ShopScreen extends Screens {
         stage.addActor(separadorV);
         stage.addActor(separadorH);
         stage.addActor(btPersonajes);
-        // stage.addActor(btPowerUps);
+
         stage.addActor(btMonedas);
         stage.addActor(btNoAds);
         stage.addActor(btAtras);
